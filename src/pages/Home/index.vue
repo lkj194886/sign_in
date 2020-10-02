@@ -1,6 +1,12 @@
 <template>
   <div class="concent">
-    <div class="sign_in">签到</div>
+    <div class="sign_in">
+      <span>01</span>
+      <div>十月   星期四</div>
+      <div>泉州 晴</div>
+      <div>宜追光</div>
+      <button>立即签到</button>
+    </div>
     <div class="the_rules">活动规则</div>
   </div>
 </template>
