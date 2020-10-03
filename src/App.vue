@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition >
+    <transition :duration="{ enter: 500, leave: 0 }">
       <router-view style="padding-bottom: 60px"></router-view>
     </transition>
     <tabbar v-model="active" route class="a">
@@ -55,6 +55,10 @@ export default {
   height: 0 auto;
 }
 #app{
-  overflow-x: hidden
+  overflow-x: hidden;
+}
+.van-steps {
+    overflow: hidden;
+    /* // background-color: #fff */
 }
 </style>
