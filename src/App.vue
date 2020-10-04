@@ -54,11 +54,11 @@ export default {
   margin: 0 auto;
   height: 0 auto;
 }
-#app{
+#app {
   overflow-x: hidden;
 }
 .van-steps {
-    overflow: hidden;
-    /* // background-color: #fff */
+  overflow: hidden;
+  /* // background-color: #fff */
 }
 </style>

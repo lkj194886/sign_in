@@ -71,17 +71,17 @@ export default {
       .region_month {
         display: flex;
         position: relative;
-        left: -4px;
+        left: 5px;
       }
       .region_weather {
         display: flex;
         position: relative;
-        left: -20px;
+        left: 5px;
       }
       .region_fitting {
         display: flex;
         position: relative;
-        left: -18px;
+        left: 4px;
         top: 10px;
         font-size: 18px;
       }
@@ -106,7 +106,7 @@ export default {
           width: 95%;
           margin-top: 10px;
           height: 50px;
-          background-color: rgba($color: #ffffff, $alpha: 0.7);
+          background-color: rgba($color: #ffffff, $alpha: 0.8);
           border-radius: 10px;
           border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
         }
