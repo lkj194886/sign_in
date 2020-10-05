@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <transition :duration="{ enter: 500, leave: 0 }">
-      <router-view style="padding-bottom: 60px"></router-view>
-    </transition>
-    <tabbar v-model="active" route class="a">
+    <!-- <transition name="slide-fade"  mode="out-in" :duration="{ enter: 500, leave: 0 }"> -->
+    <router-view style="padding-bottom: 60px"></router-view>
+    <!-- </transition> -->
+    <tabbar v-model="active" route class="a" v-show="navShow">
       <tabbar-item replace icon="home-o" to="/">首页</tabbar-item>
       <tabbar-item replace icon="coupon-o" badge="5" to="/notice"
-        >公告栏</tabbar-item
+        >公告</tabbar-item
       >
-      <tabbar-item replace icon="share-o" to="/invitation">邀请赚</tabbar-item>
+      <tabbar-item replace icon="share-o" to="/invitation">邀请</tabbar-item>
       <tabbar-item replace icon="manager-o" to="/my">我的</tabbar-item>
     </tabbar>
   </div>
@@ -26,9 +26,24 @@ export default {
   data() {
     return {
       active: 0,
+      navShow: true,
     };
   },
-  watch: {},
+  watch: {
+    $route(to) {
+      let routeName = to.name;
+      if (
+        routeName === "Home" ||
+        routeName === "Notice" ||
+        routeName === "Invitation" ||
+        routeName === "My"
+      ) {
+        this.navShow = true;
+      } else {
+        this.navShow = false;
+      }
+    },
+  },
   mounted() {},
   methods: {
     onChange(index) {
@@ -40,15 +55,31 @@ export default {
 
 <style>
 @import "./static/css/iconfont.css";
-.v-enter,
-.v-leave-to {
-  opacity: 0;
-  transform: translateX(100%);
-  position: absolute;
+.slide-fade {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: white;
 }
-.v-enter-active,
-.v-leave-active {
-  transition: all 0.5s;
+.slide-fade-enter,
+.slide-fade-leave-to {
+  left: 0;
+  top: 0;
+  right: 0;
+  position: absolute;
+  transform: translateX(-500px) translateY(-500px) rotate(-150deg) scale(0.5);
+  opacity: 1;
+}
+.slide-fade-enter-active {
+  background-color: white;
+  transition: all 0.6s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.7s ease;
+  background-color: white;
+  transform: translateX(500px) translateY(500px) rotate(150deg) scale(1);
+  z-index: 100;
 }
 * {
   margin: 0 auto;

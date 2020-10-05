@@ -5,7 +5,7 @@
         <img :src="imgsrc" />
       </div>
       <div class="my_name_id">
-        <p>昵称: 云深</p>
+        <p>15695958932</p>
         <p>ID: 123456</p>
       </div>
       <div class="my_vip_up">
@@ -14,19 +14,60 @@
       </div>
       <div class="my_zhongxin"><span class="iconfont icon-jiantou"></span></div>
     </div>
-
-    <div class="my_balance_withdraw">余额及提现</div>
-
-    <div class="my_function">功能</div>
+    <div class="my_balance_withdraw">
+      <div>
+        <p>￥700<br />余额</p>
+      </div>
+      <div>
+        <p>$200<br />七币</p>
+      </div>
+      <div @click="withdrawal"><p>提现</p></div>
+      <div><p>兑换</p></div>
+    </div>
+    <divider />
+    <div class="my_function">
+      <div>
+        <span class="left_title" >联系客服</span
+        ><span class="iconfont icon-jiantou"></span>
+      </div>
+      <div>
+        <span class="left_title">会员中心</span
+        ><span class="iconfont icon-jiantou"></span>
+      </div>
+      <div>
+        <span class="left_title">账户明细</span
+        ><span class="iconfont icon-jiantou"></span>
+      </div>
+      <div>
+        <span class="left_title">广告投放</span
+        ><span class="iconfont icon-jiantou"></span>
+      </div>
+      <div>
+        <span class="left_title">我的邀请</span
+        ><span class="iconfont icon-jiantou"></span>
+      </div>
+      <div><span class="left_title">邀请人ID: LJWZUISHUAI</span></div>
+    </div>
   </div>
 </template>
 <script>
+import { Divider } from "vant";
 export default {
+  components: {
+    Divider,
+  },
   data() {
     return {
       imgsrc: require("../../static/img/imgg.jpg"),
     };
   },
+  methods:{
+      withdrawal(){
+          this.$router.push({
+              path:'/withdrawal'
+          })
+      }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -36,14 +77,14 @@ export default {
   justify-content: center;
   align-items: center;
   .my_header {
-    width: 100%;
     display: flex;
-    border-bottom: 3px solid #000000;
-    // border: 1px solid red;
+    width: 95%;
+    border-bottom: 2px solid rgb(11, 131, 243);
+    justify-content: center;
+    align-items: center;
     .my_head_portrait {
       flex: 30%;
-      padding: 2%;
-      //   border: 1px solid red;
+      padding: 3%;
       img {
         width: 100%;
         height: 100%;
@@ -53,17 +94,13 @@ export default {
       }
     }
     .my_name_id {
-      flex: 45%;
-      padding-top: 6%;
-      padding-left: 2%;
+      flex: 55%;
       p {
         padding-top: 5%;
       }
     }
     .my_vip_up {
       flex: 35%;
-       padding-top: 6%;
-      padding-left: 2%;
       p {
         padding-top: 5%;
       }
@@ -73,20 +110,59 @@ export default {
       }
     }
     .my_zhongxin {
-      flex: 16%;
+      flex: 15%;
       span {
-        font-size: 4rem;
-        position: absolute;
-        right: -2%;
-        top: 3%;
+        font-size: 2rem;
+        color: #686161;
       }
     }
   }
   .my_balance_withdraw {
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      width: 44%;
+      height: 70px;
+      border: 2px solid rgb(11, 131, 243);
+      border-radius: 15px;
+      p {
+        text-align: center;
+      }
+    }
+
+    border-bottom: 2px solid rgb(11, 131, 243);
   }
   .my_function {
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      border-bottom: 2px solid rgb(11, 131, 243);
+      .left_title {
+        flex: 12%;
+        padding-left: 5%;
+        float: left;
+      }
+      .icon-jiantou {
+        position: absolute;
+        font-weight: 900;
+        right: 10px;
+        font-size: 1.5rem;
+        color: rgb(11, 131, 243);
+      }
+    }
   }
 }
 </style>

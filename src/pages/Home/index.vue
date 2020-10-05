@@ -2,7 +2,7 @@
   <div class="concent">
     <div class="sign_in">
       <div class="region">
-        <span class="region_day">01</span>
+        <span class="region_day">04</span>
         <span class="region_month">十月&#12288;星期四</span>
         <span class="region_weather">泉州 晴</span>
         <span class="region_fitting">宜追光</span>
