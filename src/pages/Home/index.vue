@@ -110,6 +110,9 @@ export default {
           border-radius: 10px;
           border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
         }
+        .btn:hover{
+          background-color: rgba($color: #504949, $alpha: 0.8)
+        }
       }
     }
   }
