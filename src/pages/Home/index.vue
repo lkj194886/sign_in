@@ -2,9 +2,9 @@
   <div class="concent">
     <div class="sign_in">
       <div class="region">
-        <span class="region_day">04</span>
-        <span class="region_month">十月&#12288;星期四</span>
-        <span class="region_weather">泉州 晴</span>
+        <span class="region_day">{{ date }}</span>
+        <span class="region_month">{{ month }}&#12288;{{ day }}</span>
+        <span class="region_weather">{{LocationCity}} 晴</span>
         <span class="region_fitting">宜追光</span>
       </div>
 
@@ -29,6 +29,8 @@
 </template>
 <script>
 import { Step, Steps } from "vant";
+import BMap from 'BMap' 
+// import AMap from 'vue-amap'
 export default {
   components: {
     Step,
@@ -37,19 +39,109 @@ export default {
   data() {
     return {
       active: 1,
+      date: "",
+      day: "",
+      month: "",
+      LocationProvince: "正在定位所在省", //给渲染层定义一个初始值
+      LocationCity: "正在定位所在市",
     };
+  },
+  mounted() {
+    // this.getLocation();
+    this.city();
+    let date = new Date();
+
+    if (date.getDate() < 10) {
+      this.date = "0" + date.getDate();
+    }
+
+    if (date.getDay() === 1) {
+      this.day = "星期一";
+    }
+    if (date.getDay() === 2) {
+      this.day = "星期二";
+    }
+    if (date.getDay() === 3) {
+      this.day = "星期三";
+    }
+    if (date.getDay() === 4) {
+      this.day = "星期四";
+    }
+    if (date.getDay() === 5) {
+      this.day = "星期五";
+    }
+    if (date.getDay() === 6) {
+      this.day = "星期六";
+    }
+    if (date.getDay() === 0) {
+      this.day = "星期日";
+    }
+    if (date.getMonth() === 0) {
+      this.month = "一月";
+    }
+    if (date.getMonth() === 1) {
+      this.month = "二月";
+    }
+    if (date.getMonth() === 2) {
+      this.month = "三月";
+    }
+    if (date.getMonth() === 3) {
+      this.month = "四月";
+    }
+    if (date.getMonth() === 4) {
+      this.month = "五月";
+    }
+    if (date.getMonth() === 5) {
+      this.month = "六月";
+    }
+    if (date.getMonth() === 6) {
+      this.month = "七月";
+    }
+    if (date.getMonth() === 7) {
+      this.month = "八月";
+    }
+    if (date.getMonth() === 8) {
+      this.month = "九月";
+    }
+    if (date.getMonth() === 9) {
+      this.month = "十月";
+    }
+    if (date.getMonth() === 10) {
+      this.month = "十一月";
+    }
+    if (date.getMonth() === 11) {
+      this.month = "十二月";
+    }
+  },
+  methods: {
+    city() {
+      //定义获取城市方法
+      const geolocation = new BMap.Geolocation();
+      var _this = this;
+      geolocation.getCurrentPosition(
+        function getinfo(position) {
+          let city = position.address.city; //获取城市信息
+          let province = position.address.province; //获取省份信息
+          _this.LocationProvince = province;
+          _this.LocationCity = city;
+        },
+        function (e) {
+          console.log(e);
+          _this.LocationCity = "定位失败";
+        },
+        { provider: "baidu" }
+      );
+    },
   },
 };
 </script>
 <style lang="scss" >
-
 .concent {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   .sign_in {
-    
     display: flex;
     width: 90%;
     height: 400px;
@@ -94,13 +186,11 @@ export default {
       top: 100px;
       // color: #ffffff;
       .sign_in_schedule {
-        
         width: 95%;
-        
       }
       .sign_in_btn {
         // display: flex;
-        text-align:center;
+        text-align: center;
         width: 100%;
         .btn {
           width: 95%;
@@ -109,6 +199,9 @@ export default {
           background-color: rgba($color: #ffffff, $alpha: 0.8);
           border-radius: 10px;
           border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
+        }
+        .btn:hover {
+          background-color: rgba($color: #504949, $alpha: 0.8);
         }
       }
     }
