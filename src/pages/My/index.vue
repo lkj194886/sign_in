@@ -16,10 +16,10 @@
     </div>
     <div class="my_balance_withdraw">
       <div>
-        <p>￥700<br />余额</p>
+        <p>￥&nbsp;&nbsp;&nbsp;&nbsp;700<br />余额</p>
       </div>
       <div>
-        <p>$200<br />七币</p>
+        <p>$&nbsp;&nbsp;&nbsp;&nbsp;200<br />七币</p>
       </div>
       <div @click="withdrawal"><p>提现</p></div>
       <div><p>兑换</p></div>

@@ -5,6 +5,8 @@ import Invitation from'@/pages/Invitation/index'
 import Notice from'@/pages/Notice/index'
 import My from '@/pages/My/index'
 import Withdrawal from '@/components/withdrawal/index'
+import Login from '@/components/Login/index'
+import Register from '@/components/Register/index'
 Vue.use(VueRouter)
 
 const routes = [
@@ -32,6 +34,16 @@ const routes = [
     path:"/withdrawal",
     name:"Withdrawal",
     component:Withdrawal
+  },
+  {
+    path:"/login",
+    name:"Login",
+    component:Login
+  },
+  {
+    path:"/register",
+    name:"Register",
+    component:Register
   }
 ]
 

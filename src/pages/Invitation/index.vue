@@ -1,7 +1,7 @@
 <template>
   <div class="notice">
     <div class="bulletin_board">
-      <span class="notice_title">邀请赚</span>
+      <span class="notice_title">邀请好友</span>
       <div class="notice_concent">
         1、设置容器为弹性盒子布局 display: flex; <br />
         2、设置弹性盒子中子元素的排列方式flex-direction: row | column;<br />
@@ -41,6 +41,7 @@ export default {};
       position: relative;
       top: -30px;
       align-items: center;
+      
       font-weight: 900;
       justify-content: center;
     }
