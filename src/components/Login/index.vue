@@ -5,6 +5,7 @@
       <div class="TestPhoneColor"><input class="PhoneColor" placeholder="输入手机号" v-model="GetPone"/></div> 
       <div class="LoginButton"><button class="loginButton" @click="GoCode"><span>获取验证码</span></button></div> 
       <div class="ClauseColor">{{clauseColor}}<span v-html="clasuse"></span><span v-html="privacy"></span></div>
+      <div class="HrefRegister" @click="GoRegister"><span>{{hrefRegister}}</span></div>
     </div>
     
 </template>
@@ -20,7 +21,8 @@ export default {
             clauseColor:'登录则代表你同意',
             clasuse:"《<a href='#'>用户协议</a>》和",
             privacy:"《<a href='#'>隐私政策</a>》",
-            GetPone:''
+            GetPone:'',
+            hrefRegister:"还没账户？立即注册"
         }
     },
     methods: {
@@ -28,6 +30,11 @@ export default {
             this.$router.push({
                 path:'/VerificationCode',
                 query:{phone:this.GetPone},
+            })
+        },
+        GoRegister(){
+            this.$router.push({
+                path:'/Register',
             })
         }
     },
@@ -49,7 +56,7 @@ export default {
             border-style:solid; 
             border-top-width:0px; 
             border-right-width:0px; 
-            border-bottom-width:2px; 
+            border-bottom-width:0.2rem; 
             border-left-width:0px;
             width: 95%;
         }
@@ -61,10 +68,10 @@ export default {
     .LoginButton{
         .loginButton{
             width: 90%;
-            margin-top: 10px;
-            height: 40px;
+            margin-top: 0.9rem;
+            height: 2.7rem;
             background-color: rgb(110, 108, 108);
-            border-radius: 20px;
+            border-radius: 2rem;
             border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
         }
         .loginButton span{
@@ -72,6 +79,10 @@ export default {
             font-size: 1.1rem;
             letter-spacing: 0.2rem;
         }
+    }
+    .HrefRegister{
+            font-size: 0.95rem;
+            text-decoration:underline;
     }
     .LoginFlex{
         display: flex;
@@ -97,6 +108,11 @@ export default {
             padding: 1rem 0.5rem 0rem 3rem;
             margin-left: -1.3rem;
             margin-top: -3rem;
+        }
+        .HrefRegister{
+            width: 100%;
+            margin-top: 15rem;
+            margin-left: 7.5rem;
         }
     }
 

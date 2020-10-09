@@ -11,8 +11,7 @@
         <div class="CodePhoneTest">验证码已发送到{{Phone}}</div>
         <div class="CodeValue"><vue-vercode ref="vercode" /></div>
         <div class="LoginButton">
-            <!-- <button class="loginButton"><span>获取验证码</span></button> -->
-            <button @click="getAgainCode" class="loginButton" v-show="show">获取验证码</button>
+            <button @click="getAgainCode" class="loginButton" v-show="show">重新获取验证码</button>
             <button class="loginButtonAgain" v-show="!show" disabled="disabled">{{count}}秒后重新发送</button>
         </div> 
     </div>
@@ -77,30 +76,27 @@ export default {
     .LoginButton{
         .loginButton{
             width: 90%;
-            margin-top: 10px;
-            height: 40px;
+            margin-top: 0.5rem;
+            height: 2.7rem;
             background-color: rgb(138, 133, 133);
-            border-radius: 20px;
+            border-radius: 2rem;
             border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
-        }
-        .loginButton span{
-            color: white;
             font-size: 1.1rem;
-            letter-spacing: 0.2rem;
+            color: white;
+            letter-spacing: 0.1rem;
         }
     }
     .loginButtonAgain{
         width: 90%;
-            margin-top: 10px;
-            height: 40px;
-            background-color: rgb(199, 190, 190);
-            border-radius: 20px;
-            border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
+        margin-top: 0.5rem;
+        height: 2.7rem;
+        background-color: rgb(199, 190, 190);
+        border-radius: 2rem;
+        border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
+        font-size: 1.1rem;
+        letter-spacing: 0.1rem;
     }
     .CodeFlex{
-        // display: flex;
-        // flex-direction:column;
-        // align-items:center;
         .CodeTest{
             width: 100rem;
             height: 3rem;
@@ -123,36 +119,6 @@ export default {
             height: 5rem;
             margin-left: 3rem;
         }
-    }
-
-
-
-    .getphone {
-        display: block;
-        height: 46px;
-        font-size: 22px;
-        color: #aaaaaa;
-        border: 1px solid #e6e6e6;
-        text-align: center;
-        border-radius: 23px;
-        background: white;
-        box-sizing: border-box;
-        padding:0 20px;
-        line-height: 46px;  
-    }
- 
- 
-    .blue {
-        color: #508bef;
-        display: block;
-        height: 46px;
-        line-height: 46px;
-        font-size: 22px;
-        text-align: center;
-        border: 1px solid #e6e6e6;
-        border-radius: 23px;
-        box-sizing: border-box;
-        padding:0 20px;
     }
     
     
