@@ -4,7 +4,7 @@
       <div class="region">
         <span class="region_day">{{ date }}</span>
         <span class="region_month">{{ month }}&#12288;{{ day }}</span>
-        <span class="region_weather">{{LocationCity}} 晴</span>
+        <span class="region_weather">{{ LocationCity }} 晴</span>
         <span class="region_fitting">宜追光</span>
       </div>
 
@@ -29,7 +29,7 @@
 </template>
 <script>
 import { Step, Steps } from "vant";
-import BMap from 'BMap' 
+import BMap from "BMap";
 // import AMap from 'vue-amap'
 export default {
   components: {
@@ -39,18 +39,19 @@ export default {
   data() {
     return {
       active: 1,
-      date: "",
-      day: "",
-      month: "",
-      LocationProvince: "正在定位所在省", //给渲染层定义一个初始值
-      LocationCity: "正在定位所在市",
+      date: "", //当前几号
+      day: "", //今天星期几
+      month: "", //当前月份
+      LocationCity: "正在定位",
     };
   },
   mounted() {
-    // this.getLocation();
-    this.city();
+    if (this.$store.state.LocationCity === null) {
+      this.city();
+    } else {
+      this.LocationCity = this.$store.state.LocationCity.LocationCity.LocationCity;
+    }
     let date = new Date();
-
     if (date.getDate() < 10) {
       this.date = "0" + date.getDate();
     }
@@ -124,6 +125,9 @@ export default {
           let province = position.address.province; //获取省份信息
           _this.LocationProvince = province;
           _this.LocationCity = city;
+          _this.$store.commit("$_setLocationCity", {
+            LocationCity: { LocationCity: _this.LocationCity },
+          });
         },
         function (e) {
           console.log(e);
