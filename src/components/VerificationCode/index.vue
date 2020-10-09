@@ -1,0 +1,159 @@
+<template>
+    <div class="CodeFlex">
+        <nav-bar
+            title="验证"
+            left-text="返回"
+            left-arrow
+            @click-left="onClickLeft"
+        />
+        <div class="withdrawal_nav_bottom"></div>
+        <div class="CodeTest">输入验证码</div>
+        <div class="CodePhoneTest">验证码已发送到{{Phone}}</div>
+        <div class="CodeValue"><vue-vercode ref="vercode" /></div>
+        <div class="LoginButton">
+            <!-- <button class="loginButton"><span>获取验证码</span></button> -->
+            <button @click="getAgainCode" class="loginButton" v-show="show">获取验证码</button>
+            <button class="loginButtonAgain" v-show="!show" disabled="disabled">{{count}}秒后重新发送</button>
+        </div> 
+    </div>
+</template>
+
+
+<script>
+import VueVercode from "@auspicious/vue-vercode";
+import { NavBar } from "vant";
+export default {
+    mounted:function(){
+      this.getAgainCode();//需要触发的函数
+    },
+    data() {
+        return {
+            Phone:this.$route.query.phone,
+            count: '',
+            timer: null,
+            show: true,
+        }
+    },
+    components: {
+      "vue-vercode": VueVercode,
+      NavBar,
+    },
+    methods: {
+        getCode() {
+            const code = this.$refs.vercode.getCode();
+            console.log(code);
+        },
+        getAgainCode(){
+            const num = 60;
+            if (!this.timer) {
+                this.count = num;
+                this.show = false;
+                this.timer = setInterval(() => {
+                if (this.count > 0 && this.count <= num) {
+                    this.count--;
+                } else {
+                    this.show = true;
+                    clearInterval(this.timer);
+                    this.timer = null;
+                }
+                }, 1000);
+            }
+        },
+        onClickLeft() {
+            this.$router.go(-1);
+        },
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+    .CodeTest{
+        font-size: 1.5rem;
+    }
+    .CodePhoneTest{
+        font-size: 0.9rem;
+
+    }
+    .LoginButton{
+        .loginButton{
+            width: 90%;
+            margin-top: 10px;
+            height: 40px;
+            background-color: rgb(138, 133, 133);
+            border-radius: 20px;
+            border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
+        }
+        .loginButton span{
+            color: white;
+            font-size: 1.1rem;
+            letter-spacing: 0.2rem;
+        }
+    }
+    .loginButtonAgain{
+        width: 90%;
+            margin-top: 10px;
+            height: 40px;
+            background-color: rgb(199, 190, 190);
+            border-radius: 20px;
+            border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
+    }
+    .CodeFlex{
+        // display: flex;
+        // flex-direction:column;
+        // align-items:center;
+        .CodeTest{
+            width: 100rem;
+            height: 3rem;
+            padding: 1rem 0 0 2rem;
+            margin-top: 2rem;
+        }
+        .CodePhoneTest{
+            width: 100rem;
+            height: 2rem;
+            margin-left: 2rem;
+        }
+        .CodeValue{
+            width: 20rem;
+            height: 5rem;
+            margin-left: 2rem;
+            margin-top: 4rem;
+        }
+        .LoginButton{
+            width: 20rem;
+            height: 5rem;
+            margin-left: 3rem;
+        }
+    }
+
+
+
+    .getphone {
+        display: block;
+        height: 46px;
+        font-size: 22px;
+        color: #aaaaaa;
+        border: 1px solid #e6e6e6;
+        text-align: center;
+        border-radius: 23px;
+        background: white;
+        box-sizing: border-box;
+        padding:0 20px;
+        line-height: 46px;  
+    }
+ 
+ 
+    .blue {
+        color: #508bef;
+        display: block;
+        height: 46px;
+        line-height: 46px;
+        font-size: 22px;
+        text-align: center;
+        border: 1px solid #e6e6e6;
+        border-radius: 23px;
+        box-sizing: border-box;
+        padding:0 20px;
+    }
+    
+    
+</style>
