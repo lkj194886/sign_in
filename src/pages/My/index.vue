@@ -27,8 +27,8 @@
     <divider />
     <div class="my_function">
       <div>
-        <span class="left_title" >联系客服</span
-        ><span class="iconfont icon-jiantou"></span>
+        <span class="left_title">联系客服</span
+        ><span class="iconfont icon-jiantou"></span>``
       </div>
       <div>
         <span class="left_title">会员中心</span
@@ -61,13 +61,16 @@ export default {
       imgsrc: require("../../static/img/imgg.jpg"),
     };
   },
-  methods:{
-      withdrawal(){
-          this.$router.push({
-              path:'/withdrawal'
-          })
-      }
-  }
+  mounted() {
+    
+  },
+  methods: {
+    withdrawal() {
+      this.$router.push({
+        path: "/withdrawal",
+      });
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
