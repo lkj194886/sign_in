@@ -5,7 +5,6 @@
       <div class="TestPhoneColor"><input class="PhoneColor" placeholder="输入手机号" v-model="GetPone"/></div> 
       <div class="LoginButton"><button class="loginButton" @click="GoCode"><span>获取验证码</span></button></div> 
       <div class="ClauseColor">{{clauseColor}}<span v-html="clasuse"></span><span v-html="privacy"></span></div>
-      <div class="HrefRegister" @click="GoRegister"><span>{{hrefRegister}}</span></div>
     </div>
     
 </template>
@@ -22,7 +21,6 @@ export default {
             clasuse:"《<a href='#'>用户协议</a>》和",
             privacy:"《<a href='#'>隐私政策</a>》",
             GetPone:'',
-            hrefRegister:"还没账户？立即注册"
         }
     },
     methods: {
@@ -32,11 +30,6 @@ export default {
                 query:{phone:this.GetPone},
             })
         },
-        GoRegister(){
-            this.$router.push({
-                path:'/Register',
-            })
-        }
     },
 }
 </script>
@@ -63,12 +56,12 @@ export default {
     }
     .ClauseColor{
         color: rgb(110, 110, 105);
-        font-size: 0.7rem;
+        font-size: 0.7%;
     }
     .LoginButton{
         .loginButton{
             width: 90%;
-            margin-top: 0.9rem;
+            margin-top: 6%;
             height: 2.7rem;
             background-color: rgb(110, 108, 108);
             border-radius: 2rem;
@@ -80,39 +73,29 @@ export default {
             letter-spacing: 0.2rem;
         }
     }
-    .HrefRegister{
-            font-size: 0.95rem;
-            text-decoration:underline;
-    }
     .LoginFlex{
         display: flex;
         flex-direction:column;
         align-items:center;
         .LoginColor{
-            width: 100rem;
+            width: 100%;
             height: 10rem;
             padding: 1rem 0 0 2rem;
         }
         .TestPhoneColor{
             width: 90%;
-            padding: 1rem 2rem 3rem 3rem;
-            margin-left: -1rem;
+            margin-left: 8%;
+            margin-bottom: 12%;
         }
         .ClauseColor{
             width: 90%;
-            margin-top: 1rem;
-            margin-left:6rem;
+            margin-top: 7%;
+            margin-left:40%;
         }
         .LoginButton{
             width: 95%;  
-            padding: 1rem 0.5rem 0rem 3rem;
-            margin-left: -1.3rem;
-            margin-top: -3rem;
-        }
-        .HrefRegister{
-            width: 100%;
-            margin-top: 15rem;
-            margin-left: 7.5rem;
+            margin-left: 8%;
+            margin-top: -10%;
         }
     }
 

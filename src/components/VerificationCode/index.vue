@@ -98,26 +98,34 @@ export default {
     }
     .CodeFlex{
         .CodeTest{
-            width: 100rem;
-            height: 3rem;
-            padding: 1rem 0 0 2rem;
-            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 10%;
+            margin-top: 10%;
+            margin-bottom: 5%;
+            margin-left: -19%;
         }
         .CodePhoneTest{
-            width: 100rem;
-            height: 2rem;
-            margin-left: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 20%;
+            margin-left: 2%;
         }
         .CodeValue{
-            width: 20rem;
-            height: 5rem;
-            margin-left: 2rem;
-            margin-top: 4rem;
+            width: 85%;
+            height: 50%;
+            margin-top: 20%;
         }
         .LoginButton{
-            width: 20rem;
-            height: 5rem;
-            margin-left: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 85%;
+            margin-top: 5%;
         }
     }
     
