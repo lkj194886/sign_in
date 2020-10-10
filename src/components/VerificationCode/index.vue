@@ -102,18 +102,16 @@ export default {
             justify-content: center;
             align-items: center;
             width: 80%;
-            height: 10%;
             margin-top: 10%;
             margin-bottom: 5%;
-            margin-left: -19%;
+            margin-left: -15%;
         }
         .CodePhoneTest{
             display: flex;
             justify-content: center;
             align-items: center;
             width: 60%;
-            height: 20%;
-            margin-left: 2%;
+            margin-left: 5.5%;
         }
         .CodeValue{
             width: 85%;
