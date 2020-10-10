@@ -57,6 +57,9 @@ export default {
     .ClauseColor{
         color: rgb(110, 110, 105);
         font-size: 0.7%;
+        .ClauseColor span{
+            text-align: center;
+        }
     }
     .LoginButton{
         .loginButton{
@@ -90,7 +93,8 @@ export default {
         .ClauseColor{
             width: 90%;
             margin-top: 7%;
-            margin-left:40%;
+            text-align: center;
+           
         }
         .LoginButton{
             width: 95%;  

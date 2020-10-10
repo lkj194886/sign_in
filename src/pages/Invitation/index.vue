@@ -60,7 +60,6 @@
     }
     .notice_concent {
       font-size: 15px;
-      // padding-bottom: 25px;
       padding: 0 10px 35px 10px;
       background-color: #ffffff;
     }
