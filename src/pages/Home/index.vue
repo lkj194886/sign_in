@@ -1,48 +1,62 @@
 <template>
   <div class="concent">
-    <div class="sign_in">
-      <div class="region">
-        <span class="region_day">{{ date }}</span>
-        <span class="region_month">{{ month }}&#12288;{{ day }}</span>
-        <span class="region_weather">{{ LocationCity }} 晴</span>
-        <span class="region_fitting">宜追光</span>
-      </div>
-
-      <div class="sign_in_detailed">
-        <div class="sign_in_schedule">
-          <steps :active="active">
-            <step>开始</step>
-            <step>01天</step>
-            <step>02天</step>
-            <step>03天</step>
-          </steps>
-        </div>
-
-        <div class="sign_in_btn">
-          <input class="btn" type="button" value="立即签到" />
-        </div>
-      </div>
+    <div class="loadings" v-show="show">
+      <loading  size="100" vertical>加载中</loading>
     </div>
+    <div class="concent_sign" v-if="divShow">
+      <div class="sign_in">
+        <div class="region">
+          <span class="region_day">{{ date }}</span>
+          <span class="region_month">{{ month }}&#12288;{{ day }}</span>
+          <span class="region_weather">{{ LocationCity }} {{ weather }}</span>
+          <span class="region_fitting">{{ remind }}</span>
+        </div>
+        <div class="sign_in_detailed">
+          <div class="sign_in_schedule">
+            <steps :active="active">
+              <step>开始</step>
+              <step>01天</step>
+              <step>02天</step>
+              <step>03天</step>
+            </steps>
+          </div>
+          <div class="sign_in_btn">
+            <input class="btn" type="button" value="立即签到" />
+          </div>
+        </div>
+      </div>
 
-    <div class="the_rules">活动规则</div>
+      <div class="the_rules">活动规则</div>
+    </div>
   </div>
 </template>
 <script>
 import { Step, Steps } from "vant";
 import BMap from "BMap";
 // import AMap from 'vue-amap'
+import { Loading } from "vant";
 export default {
   components: {
     Step,
     Steps,
+    Loading,
   },
   data() {
     return {
       active: 1,
+      weather: "",
+      remind: "",
       date: "", //当前几号
       day: "", //今天星期几
       month: "", //当前月份
       LocationCity: "正在定位",
+      // cityy: "",
+      cityParams: {
+        city: "",
+      },
+      divShow: false,
+      timer: "",
+      show: true,
     };
   },
   mounted() {
@@ -51,6 +65,7 @@ export default {
     } else {
       this.LocationCity = this.$store.state.LocationCity.LocationCity.LocationCity;
     }
+    // this.cityParams.city=this.$store.state.LocationCity.LocationCity.LocationCity.replace("市","")
     let date = new Date();
     if (date.getDate() < 10) {
       this.date = "0" + date.getDate();
@@ -115,6 +130,8 @@ export default {
     if (date.getMonth() === 11) {
       this.month = "十二月";
     }
+
+    // this.getCity();
   },
   methods: {
     city() {
@@ -130,6 +147,7 @@ export default {
           _this.$store.commit("$_setLocationCity", {
             LocationCity: { LocationCity: _this.LocationCity },
           });
+          _this.timer = setInterval(_this.setCity, 1500);
         },
         function (e) {
           console.log(e);
@@ -137,6 +155,29 @@ export default {
         },
         { provider: "baidu" }
       );
+    },
+
+    getCity() {
+      // console.log(this.cityy);
+      this.cityParams.city = this.LocationCity.replace("市", "");
+      this.$axios
+        .get("city/getCity", { params: this.cityParams })
+        .then((res) => {
+
+          this.weather = res.data.data.forecast[0].type;
+          this.remind = res.data.data.forecast[0].notice;
+        });
+    },
+
+    setCity() {
+      this.show = false;
+      this.divShow = true;
+
+
+      clearInterval(this.timer);
+
+      this.cityParams.city = this.LocationCity.replace("市", "");
+      this.getCity();
     },
   },
 };
@@ -147,81 +188,92 @@ export default {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  .sign_in {
+  .loadings {
+    // position: absolute;
+    width: 100%;
+    height: 100vh;
     display: flex;
-    width: 90%;
-    height: 400px;
-    border: 2px solid rgb(11, 131, 243);
-    background-color: rgb(11, 131, 243);
-    border-radius: 15px;
-    margin-top: 25px;
-    justify-content: center;
     align-items: center;
-    color: #ffffff;
-    .region {
-      position: absolute;
-      top: 4%;
-      left: 10%;
-      align-items: center;
-      .region_day {
-        font-size: 6rem;
-      }
-      .region_month {
-        display: flex;
-        position: relative;
-        left: 10px;
-      }
-      .region_weather {
-        display: flex;
-        position: relative;
-        left: 10px;
-      }
-      .region_fitting {
-        display: flex;
-        position: relative;
-        left: 4px;
-        top: 10px;
-        font-size: 18px;
-      }
-    }
-    .sign_in_detailed {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      position: relative;
-      top: 100px;
-      // color: #ffffff;
-      .sign_in_schedule {
-        width: 95%;
-      }
-      .sign_in_btn {
-        // display: flex;
-        text-align: center;
-        width: 100%;
-        .btn {
-          width: 95%;
-          margin-top: 10px;
-          height: 50px;
-          background-color: rgba($color: #ffffff, $alpha: 0.8);
-          border-radius: 10px;
-          border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
-        }
-        .btn:hover {
-          background-color: rgba($color: #504949, $alpha: 0.8);
-        }
-      }
-    }
+    justify-content: center;
   }
-  .the_rules {
-    display: flex;
-    width: 90%;
-    height: 250px;
-    border: 2px solid rgb(11, 131, 243);
-    border-radius: 15px;
-    margin-top: 60px;
-    justify-content: center;
-    align-items: center;
-    // margin-bottom: 100px;
+  .concent_sign {
+    width: 100%;
+    .sign_in {
+      display: flex;
+      width: 90%;
+      height: 400px;
+      border: 2px solid rgb(11, 131, 243);
+      background-color: rgb(11, 131, 243);
+      border-radius: 15px;
+      margin-top: 25px;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      .region {
+        position: absolute;
+        top: 4%;
+        left: 10%;
+        align-items: center;
+        .region_day {
+          font-size: 6rem;
+        }
+        .region_month {
+          display: flex;
+          position: relative;
+          left: 10px;
+        }
+        .region_weather {
+          display: flex;
+          position: relative;
+          left: 10px;
+        }
+        .region_fitting {
+          display: flex;
+          position: relative;
+          left: 9px;
+          top: 10px;
+          font-size: 18px;
+        }
+      }
+      .sign_in_detailed {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        position: relative;
+        top: 100px;
+        // color: #ffffff;
+        .sign_in_schedule {
+          width: 95%;
+        }
+        .sign_in_btn {
+          // display: flex;
+          text-align: center;
+          width: 100%;
+          .btn {
+            width: 95%;
+            margin-top: 10px;
+            height: 50px;
+            background-color: rgba($color: #ffffff, $alpha: 0.8);
+            border-radius: 10px;
+            border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
+          }
+          .btn:hover {
+            background-color: rgba($color: #504949, $alpha: 0.8);
+          }
+        }
+      }
+    }
+    .the_rules {
+      display: flex;
+      width: 90%;
+      height: 250px;
+      border: 2px solid rgb(11, 131, 243);
+      border-radius: 15px;
+      margin-top: 60px;
+      justify-content: center;
+      align-items: center;
+      // margin-bottom: 100px;
+    }
   }
 }
 </style>

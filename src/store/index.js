@@ -8,7 +8,8 @@ const store = new Vuex.Store({
     state() {
         return {
             user: null,
-            LocationCity:null
+            LocationCity:null,
+            Loading:null
         }
     },
     getters: {
@@ -23,6 +24,11 @@ const store = new Vuex.Store({
     mutations: {
         $_setUserItem(state, value) {
             state.user = value
+            // console.log(state. user)
+            localStorage.setItem(state, JSON.stringify(value))
+        },
+        $_setLoading(state, value) {
+            state.Loading = value
             // console.log(state. user)
             localStorage.setItem(state, JSON.stringify(value))
         },
