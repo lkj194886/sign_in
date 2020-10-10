@@ -179,7 +179,7 @@ export default {
       .region_fitting {
         display: flex;
         position: relative;
-        left: 10px;
+        left: 4px;
         top: 10px;
         font-size: 18px;
       }
