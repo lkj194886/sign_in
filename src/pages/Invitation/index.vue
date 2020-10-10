@@ -15,16 +15,30 @@
     </div>
   </div>
 </template>
+
+
+
 <script>
-export default {};
+  export default {
+    data() {
+      return {
+        
+      }
+    },
+  };
 </script>
+
+
+
+
+
 <style lang="scss" scoped>
 .notice {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: white;
+  background-color: red;
   align-items: center;
   .bulletin_board {
     width: 90%;
@@ -32,7 +46,6 @@ export default {};
     border-radius: 15px;
     .notice_title {
       display: flex;
-      border: 2px solid rgb(11, 131, 243);
       font-size: 2rem;
       border-radius: 15px;
       width: 40%;
@@ -49,6 +62,7 @@ export default {};
       font-size: 15px;
       // padding-bottom: 25px;
       padding: 0 10px 35px 10px;
+      background-color: #ffffff;
     }
   }
 }
