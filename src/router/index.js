@@ -6,7 +6,6 @@ import Notice from'@/pages/Notice/index'
 import My from '@/pages/My/index'
 import Withdrawal from '@/components/withdrawal/index'
 import Login from '@/components/Login/index'
-import Register from '@/components/Register/index'
 import VerificationCode from '@/components/VerificationCode/index'
 Vue.use(VueRouter)
 
@@ -58,11 +57,6 @@ const routes = [
     meta:{
       footShow: false, // true显示，false隐藏
     }
-  },
-  {
-    path:"/register",
-    name:"Register",
-    component:Register
   },
   {
     path:"/verificationCode",

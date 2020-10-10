@@ -79,81 +79,54 @@ export default {
 .CodePhoneTest {
   font-size: 0.9rem;
 }
-.LoginButton {
-  .loginButton {
-    width: 90%;
-    margin-top: 10px;
-    height: 40px;
-    background-color: rgb(138, 133, 133);
-    border-radius: 20px;
-    border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
-  }
-  .loginButton span {
-    color: white;
-    font-size: 1.1rem;
-    letter-spacing: 0.2rem;
-  }
-}
-.loginButtonAgain {
-  width: 90%;
-  margin-top: 10px;
-  height: 40px;
-  background-color: rgb(199, 190, 190);
-  border-radius: 20px;
-  border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
-}
-.CodeFlex {
-  // display: flex;
-  // flex-direction:column;
-  // align-items:center;
-  .CodeTest {
-    width: 100rem;
-    height: 3rem;
-    padding: 1rem 0 0 2rem;
-    margin-top: 2rem;
-  }
-  .CodePhoneTest {
-    width: 100rem;
-    height: 2rem;
-    margin-left: 2rem;
-  }
-  .CodeValue {
-    width: 20rem;
-    height: 5rem;
-    margin-left: 2rem;
-    margin-top: 4rem;
-  }
-  .LoginButton {
-    width: 20rem;
-    height: 5rem;
-    margin-left: 3rem;
-  }
-}
 
-.getphone {
-  display: block;
-  height: 46px;
-  font-size: 22px;
-  color: #aaaaaa;
-  border: 1px solid #e6e6e6;
-  text-align: center;
-  border-radius: 23px;
-  background: white;
-  box-sizing: border-box;
-  padding: 0 20px;
-  line-height: 46px;
-}
-
-.blue {
-  color: #508bef;
-  display: block;
-  height: 46px;
-  line-height: 46px;
-  font-size: 22px;
-  text-align: center;
-  border: 1px solid #e6e6e6;
-  border-radius: 23px;
-  box-sizing: border-box;
-  padding: 0 20px;
-}
+    .LoginButton{
+        .loginButton{
+            width: 90%;
+            margin-top: 0.5rem;
+            height: 2.7rem;
+            background-color: rgb(138, 133, 133);
+            border-radius: 2rem;
+            border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
+            font-size: 1.1rem;
+            color: white;
+            letter-spacing: 0.1rem;
+        }
+    }
+    .loginButtonAgain{
+        width: 90%;
+        margin-top: 0.5rem;
+        height: 2.7rem;
+        background-color: rgb(199, 190, 190);
+        border-radius: 2rem;
+        border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
+        font-size: 1.1rem;
+        letter-spacing: 0.1rem;
+    }
+    .CodeFlex{
+        .CodeTest{
+            width: 80%;
+            margin-top: 10%;
+            margin-bottom: 5%;
+            margin-left: 9%;
+        }
+        .CodePhoneTest{
+            width: 60%;
+            margin-left: 9%;
+        }
+        .CodeValue{
+            width: 85%;
+            height: 50%;
+            margin-top: 20%;
+        }
+        .LoginButton{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 85%;
+            margin-top: 5%;
+        }
+    }
+    
+    
 </style>
