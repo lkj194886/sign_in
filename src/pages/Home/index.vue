@@ -1,7 +1,7 @@
 <template>
   <div class="concent">
     <div class="loadings" v-show="show">
-      <loading  size="100" vertical>加载中</loading>
+      <loading size="100" vertical>加载中</loading>
     </div>
     <div class="concent_sign" v-if="divShow">
       <div class="sign_in">
@@ -60,10 +60,15 @@ export default {
     };
   },
   mounted() {
+    //页面加载时查询全局变量是否已经存在数据,没有则重新获取
     if (this.$store.state.LocationCity === null) {
       this.city();
     } else {
+      this.divShow = true;
+      this.show = false;
       this.LocationCity = this.$store.state.LocationCity.LocationCity.LocationCity;
+      this.weather = this.$store.state.weather.weather;
+      this.remind = this.$store.state.weather.remind;
     }
     // this.cityParams.city=this.$store.state.LocationCity.LocationCity.LocationCity.replace("市","")
     let date = new Date();
@@ -157,25 +162,26 @@ export default {
       );
     },
 
+    //获取天气及每日提醒
     getCity() {
       // console.log(this.cityy);
       this.cityParams.city = this.LocationCity.replace("市", "");
       this.$axios
         .get("city/getCity", { params: this.cityParams })
         .then((res) => {
-
           this.weather = res.data.data.forecast[0].type;
           this.remind = res.data.data.forecast[0].notice;
+          this.$store.commit("$_setweather", {
+            weather: (this.weather = res.data.data.forecast[0].type),
+            remind: (this.remind = res.data.data.forecast[0].notice),
+          });
         });
     },
 
     setCity() {
       this.show = false;
       this.divShow = true;
-
-
       clearInterval(this.timer);
-
       this.cityParams.city = this.LocationCity.replace("市", "");
       this.getCity();
     },

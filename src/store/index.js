@@ -8,8 +8,8 @@ const store = new Vuex.Store({
     state() {
         return {
             user: null,
-            LocationCity:null,
-            Loading:null
+            LocationCity: null,
+            weather: null
         }
     },
     getters: {
@@ -27,8 +27,8 @@ const store = new Vuex.Store({
             // console.log(state. user)
             localStorage.setItem(state, JSON.stringify(value))
         },
-        $_setLoading(state, value) {
-            state.Loading = value
+        $_setweather(state, value) {
+            state.weather = value
             // console.log(state. user)
             localStorage.setItem(state, JSON.stringify(value))
         },
