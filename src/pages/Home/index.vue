@@ -54,8 +54,10 @@ export default {
     let date = new Date();
     if (date.getDate() < 10) {
       this.date = "0" + date.getDate();
+    } else {
+      this.date = date.getDate();
     }
-
+    // this.date="01"
     if (date.getDay() === 1) {
       this.day = "星期一";
     }
@@ -167,17 +169,17 @@ export default {
       .region_month {
         display: flex;
         position: relative;
-        left: 5px;
+        left: 10px;
       }
       .region_weather {
         display: flex;
         position: relative;
-        left: 5px;
+        left: 10px;
       }
       .region_fitting {
         display: flex;
         position: relative;
-        left: 4px;
+        left: 10px;
         top: 10px;
         font-size: 18px;
       }

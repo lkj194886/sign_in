@@ -14,32 +14,50 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta:{
+      footShow: true, // true显示，false隐藏
+    }
   },
   {
     path:'/invitation',
     name:"Invitation",
-    component:Invitation
+    component:Invitation,
+    meta:{
+      footShow: true, // true显示，false隐藏
+    }
   },
   {
     path:"/notice",
     name:"Notice",
-    component:Notice
+    component:Notice,
+    meta:{
+      footShow: true, // true显示，false隐藏
+    }
   },
   {
     path:"/my",
     name:"My",
-    component:My
+    component:My,
+    meta:{
+      footShow: true, // true显示，false隐藏
+    }
   },
   {
     path:"/withdrawal",
     name:"Withdrawal",
-    component:Withdrawal
+    component:Withdrawal,
+    meta:{
+      footShow: false, // true显示，false隐藏
+    }
   },
   {
     path:"/login",
     name:"Login",
-    component:Login
+    component:Login,
+    meta:{
+      footShow: false, // true显示，false隐藏
+    }
   },
   {
     path:"/register",
@@ -49,7 +67,10 @@ const routes = [
   {
     path:"/verificationCode",
     name:"VerificationCode",
-    component:VerificationCode
+    component:VerificationCode,
+    meta:{
+      footShow: false, // true显示，false隐藏
+    }
   }
 ]
 
