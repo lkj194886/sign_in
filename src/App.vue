@@ -19,11 +19,13 @@
 
 <script>
 import { Tabbar, TabbarItem } from "vant";
+
 export default {
   name: "App",
   components: {
     Tabbar,
     TabbarItem,
+
   },
   data() {
     return {
@@ -39,7 +41,7 @@ export default {
 </script>
 
 <style>
-@import "./static/css/iconfont.css";
+
 .slide-fade {
   position: fixed;
   left: 0;

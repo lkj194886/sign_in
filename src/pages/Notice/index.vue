@@ -38,9 +38,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 88vh;
   background: blanchedalmond;
-  align-items: center;
+  // align-items: center;
   .bulletin_board {
     width: 80%;
     border: 2px solid white;

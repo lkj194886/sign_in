@@ -191,6 +191,7 @@ export default {
 </script>
 <style lang="scss" >
 .concent {
+  
   display: flex;
   justify-content: center;
   align-items: center;

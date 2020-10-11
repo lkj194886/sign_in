@@ -2,7 +2,7 @@
   <div class="my">
     <div class="my_header">
       <div class="my_head_portrait">
-        <img :src="imgsrc" />
+        <img src="../../static/img/imgg.jpg"/>
       </div>
       <div class="my_name_id">
         <p>15695958932</p>
@@ -58,7 +58,7 @@ export default {
   },
   data() {
     return {
-      imgsrc: require("../../static/img/imgg.jpg"),
+      imgsrc: require("@/static/img/imgg.jpg"),
     };
   },
   mounted() {

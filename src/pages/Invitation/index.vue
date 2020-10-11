@@ -18,12 +18,12 @@
     </div>
     <div v-show="show" class="popContainer">
       <img
-        src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+        src="http://192.168.0.102:8081/file/abhlz.jpg"
       />
       <button class="buttonShowPhoto">
         <a
-          href="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
-          download="a.jpg"
+          :href="imgsrc"
+          download="a.jpeg"
           ><span>点击保存</span></a
         >
       </button>
@@ -122,9 +122,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 88vh;
   background-color: blanchedalmond;
-  align-items: center;
+  // align-items: center;
   .bulletin_board {
     width: 80%;
     border: 2px solid white;
@@ -133,16 +133,16 @@ export default {
     margin-top: 4rem;
     .notice_title {
       display: flex;
-      font-size: 1.13rem;
-      // border-radius: 15px;
+      border: 1px solid rgb(171, 233, 15);
+      font-size: 1.12rem;
+      border-radius: 45px;
       width: 40%;
       padding: 5px 20px 5px 20px;
-      background-color: #ffffff;
+      background-color:  #CD853F;
       position: relative;
-      top: -00px;
+      top: -20px;
       align-items: center;
-
-      font-weight: 550;
+      font-weight: 900;
       justify-content: center;
     }
     .notice_concent {
@@ -170,7 +170,7 @@ export default {
 }
 .popContainer {
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;

@@ -3,7 +3,7 @@ import App from './App.vue'
 import 'vant/lib/index.css';
 import router from './router'
 import store from "./store/index"
-
+import "./static/css/iconfont.css"
 Vue.config.productionTip = false
 
 import axios from "axios";
