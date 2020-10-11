@@ -11,7 +11,6 @@ axios.defaults.headers.post["Content-type"] = "application/json";
 axios.defaults.baseURL = "http://192.168.0.102:8090";
 Vue.prototype.$axios = axios;
 new Vue({
-  plus,
   router,
   store,
   render: h => h(App)
