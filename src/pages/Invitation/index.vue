@@ -1,7 +1,7 @@
 <template>
   <div class="notice">
     <div class="bulletin_board">
-      <span class="notice_title">邀请好友</span>
+      <span class="notice_title">邀请福利</span>
       <div class="notice_concent">
         1、设置容器为弹性盒子布局 display: flex; <br />
         2、设置弹性盒子中子元素的排列方式flex-direction: row | column;<br />
@@ -12,36 +12,42 @@
         flex-start | flex-end | center | space-between |space-around; <br />
         6、设置弹性子元素在侧轴（纵轴）方向上的对齐方式;<br />
       </div>
-      <div class="invitationButton" @click="photoShow"><span>立即邀请赢取福利</span></div>
+      <div class="invitationButton" @click="photoShow">
+        <span>立即邀请赢取福利</span>
+      </div>
     </div>
-    <div v-show="show" class='popContainer'>
-      <img  src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" alt="" >
-      <button class="buttonShowPhoto"  @click="EndphotoShow"><span>点击保存</span></button>
+    <div v-show="show" class="popContainer">
+      <img :src="imgsrc" alt="" />
+      <button class="buttonShowPhoto" @click="EndphotoShow">
+        <span>点击保存</span>
+      </button>
     </div>
   </div>
 </template>
 
 
 <script>
-
-
-  export default {
-    data() {
-      return {
-        show :false,
-      }
+export default {
+  data() {
+    return {
+      show: false,
+      imgsrc: "http://192.168.0.102:8081/file/abhlz.jpg",
+      city: "",
+    };
+  },
+  components: {},
+  plusReady: function () {
+    console.log(this.$VueHtml5Plus.$networkinfo.getCurrentNetworkType());
+  },
+  methods: {
+    photoShow() {
+      this.show = true;
     },
-    components:{
-     
+    EndphotoShow() {
+      
+      // console.log(this.os.plus)
+      // console.log(this.os.plus)
     },
-    methods:{
-      photoShow(){
-        this.show=true
-      },
-      EndphotoShow(){
-        this.toSave("https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg","xiaolin")
-        this.show=false
-      },
     //   downCom() {
     //     let that = this;
     //     that.$http.files().then(res => {
@@ -50,34 +56,37 @@
     //     this.toSave(hreLocal,"xiaolin")
     //   });
     // },
-      toSave(url,name) {
-        let image = new Image()
-        image.setAttribute('crossOrigin', 'anonymous')
-        image.src = url
-        image.onload = () => {
-          let canvas = document.createElement('canvas')
-          canvas.width = image.width
-          canvas.height = image.height
-          let ctx = canvas.getContext('2d')
-          ctx.drawImage(image, 0, 0, image.width, image.height)
-          canvas.toBlob((blob) => {
-            let url = URL.createObjectURL(blob)
-            this.download(url,name)
-            // 用完释放URL对象
-            URL.revokeObjectURL(url)
-          })
-        }
-      },
-      download(href, name) {
-       let eleLink = document.createElement('a')
-       eleLink.download = name
-       eleLink.href = href
-       eleLink.click()
-       eleLink.remove()
-     }
-      
-    }
-  };
+    toSave(url, name) {
+      let image = new Image();
+      image.setAttribute("crossOrigin", "anonymous");
+      image.src = url;
+      image.onload = () => {
+        let canvas = document.createElement("canvas");
+        canvas.width = image.width;
+        canvas.height = image.height;
+        let ctx = canvas.getContext("2d");
+        ctx.drawImage(image, 0, 0, image.width, image.height);
+        canvas.toBlob((blob) => {
+          let url = URL.createObjectURL(blob);
+          this.download(url, name);
+          // 用完释放URL对象
+          URL.revokeObjectURL(url);
+        });
+      };
+    },
+    download(href, name) {
+      let eleLink = document.createElement("a");
+      eleLink.download = name;
+      eleLink.href = href;
+      eleLink.click();
+      eleLink.remove();
+    },
+  },
+  created() {},
+  mounted() {
+    // console.log(JSON.stringify(Vue.os));
+  },
+};
 </script>
 
 
@@ -107,7 +116,7 @@
       position: relative;
       top: -00px;
       align-items: center;
-      
+
       font-weight: 550;
       justify-content: center;
     }
@@ -117,53 +126,53 @@
       padding: 20px 10px 5px 10px;
       background-color: #ffffff;
     }
-    .invitationButton{
+    .invitationButton {
       width: 75%;
       height: 30%;
       line-height: 2.7rem;
       border-radius: 35px;
       display: flex;
       align-items: center;
-      background-color:#CD853F;
+      background-color: #cd853f;
       position: relative;
       top: 15px;
-      span{
+      span {
         color: white;
         font-size: 19px;
       }
     }
   }
 }
-.popContainer{
-      position: fixed;
-      top: 0px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.8);
-      img{
-        display: flex;
-        align-items: center;
-        width: 80%;
-        height: 90%;
-        object-fit: contain
-      }
+.popContainer {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  img {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 90%;
+    object-fit: contain;
+  }
 }
-.buttonShowPhoto{
-      // border: 1px solid black;
-      background: rgba(0,0,0,0.8);
-      width: 40%;
-      height: 6%;
-      line-height: 2.2rem;
-      // border-radius: 35px;
-      display: flex;
-      align-items: center;
-      background-color:#CD853F;
-      position: relative;
-      top: -190px;
-      span{
-        color: white;
-        font-size: 19px;
-      }
+.buttonShowPhoto {
+  // border: 1px solid black;
+  background: rgba(0, 0, 0, 0.8);
+  width: 40%;
+  height: 6%;
+  line-height: 2.2rem;
+  // border-radius: 35px;
+  display: flex;
+  align-items: center;
+  background-color: #cd853f;
+  position: relative;
+  top: -190px;
+  span {
+    color: white;
+    font-size: 19px;
+  }
 }
 </style>

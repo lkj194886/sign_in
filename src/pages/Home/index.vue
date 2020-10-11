@@ -164,13 +164,13 @@ export default {
 
     //获取天气及每日提醒
     getCity() {
-      // console.log(this.cityy);
       this.cityParams.city = this.LocationCity.replace("市", "");
       this.$axios
         .get("city/getCity", { params: this.cityParams })
         .then((res) => {
           this.weather = res.data.data.forecast[0].type;
           this.remind = res.data.data.forecast[0].notice;
+          //将数据存入全局变量
           this.$store.commit("$_setweather", {
             weather: (this.weather = res.data.data.forecast[0].type),
             remind: (this.remind = res.data.data.forecast[0].notice),
@@ -178,11 +178,12 @@ export default {
         });
     },
 
+    //对请求数据进行处理
     setCity() {
       this.show = false;
       this.divShow = true;
       clearInterval(this.timer);
-      this.cityParams.city = this.LocationCity.replace("市", "");
+
       this.getCity();
     },
   },
