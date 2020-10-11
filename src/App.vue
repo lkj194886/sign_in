@@ -2,6 +2,7 @@
   <div id="app">
     <!-- <transition name="slide-fade"  mode="out-in" :duration="{ enter: 500, leave: 0 }"> -->
     <router-view style="padding-bottom: 60px"></router-view>
+    
     <!-- </transition> -->
     <tabbar v-model="active" route class="a" v-show="$route.meta.footShow">
       <tabbar-item replace icon="home-o" to="/">首页</tabbar-item>
@@ -11,14 +12,13 @@
       <tabbar-item replace icon="share-o" to="/invitation">邀请</tabbar-item>
       <tabbar-item replace icon="manager-o" to="/my">我的</tabbar-item>
     </tabbar>
-     
+   
   </div>
- 
+  
 </template>
 
 <script>
 import { Tabbar, TabbarItem } from "vant";
-
 export default {
   name: "App",
   components: {
@@ -29,13 +29,12 @@ export default {
     return {
       active: 0,
       navShow: true,
+      show: true,
     };
   },
-  watch: {
-  },
+  watch: {},
   mounted() {},
-  methods: {
-  },
+  methods: {},
 };
 </script>
 
@@ -73,6 +72,7 @@ export default {
 }
 #app {
   overflow-x: hidden;
+  /* display: flex; */
 }
 .van-steps {
   overflow: hidden;

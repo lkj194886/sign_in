@@ -27,6 +27,11 @@ const store = new Vuex.Store({
             // console.log(state. user)
             localStorage.setItem(state, JSON.stringify(value))
         },
+        $_setweather(state, value) {
+            state.weather = value
+            // console.log(state. user)
+            localStorage.setItem(state, JSON.stringify(value))
+        },
         $_setLocationCity(state, value) {
             state.LocationCity = value
             // console.log(state. user)
