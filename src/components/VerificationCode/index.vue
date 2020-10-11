@@ -31,13 +31,14 @@ export default {
     //   console.log("!")
     this.getCode();
     this.getAgainCode(); //需要触发的函数
+    this.$store.commit("$_setsumphone",this.Phone);
   },
   data() {
     return {
-      Phone: this.$route.query.phone,
-      count: "",
-      timer: null,
-      show: true,
+      Phone:this.$route.params.phone,
+      count:"",
+      timer:null,
+      show:true,
     };
   },
   components: {

@@ -26,8 +26,8 @@ export default {
     methods: {
         GoCode(){
             this.$router.push({
-                path:'/VerificationCode',
-                query:{phone:this.GetPone},
+                name:'VerificationCode',
+                params:{phone:this.GetPone},
             })
         },
     },

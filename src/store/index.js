@@ -8,7 +8,8 @@ const store = new Vuex.Store({
     state() {
         return {
             user: null,
-            LocationCity:null
+            LocationCity:null,
+            sumphone:null,
         }
     },
     getters: {
@@ -34,7 +35,11 @@ const store = new Vuex.Store({
         $_removeStorage(state) {
             state.user = null
             localStorage.removeItem(key)
-        }
+        },
+        $_setsumphone(state,value) {
+            state.sumphone = value
+            localStorage.setItem(state, JSON.stringify(value))
+        },
     }
 })
 

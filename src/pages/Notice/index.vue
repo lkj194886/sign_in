@@ -39,28 +39,31 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: white;
+  background: blanchedalmond;
   align-items: center;
   .bulletin_board {
-    width: 90%;
-    border: 2px solid rgb(11, 131, 243);
-    border-radius: 15px;
+    width: 80%;
+    border: 2px solid white;
+    background-color: white;
+    margin-top: 8rem;
+    // border-radius: 50px;
     .notice_title {
       display: flex;
-      border: 2px solid rgb(11, 131, 243);
-      font-size: 2rem;
-      border-radius: 15px;
+      border: 1px solid rgb(171, 233, 15);
+      font-size: 1.12rem;
+      border-radius: 45px;
       width: 40%;
       padding: 5px 20px 5px 20px;
-      background-color: #ffffff;
+      background-color:  #CD853F;
       position: relative;
-      top: -30px;
+      top: -20px;
       align-items: center;
       font-weight: 900;
       justify-content: center;
     }
     .notice_concent {
-      font-size: 15px;
+      font-size: 14px;
+      color: rgb(99, 96, 96);
       // padding-bottom: 25px;
       padding: 0 10px 35px 10px;
     }

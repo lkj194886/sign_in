@@ -31,7 +31,7 @@
         ><span class="iconfont icon-jiantou"></span>``
       </div>
       <div>
-        <span class="left_title">会员中心</span
+        <span class="left_title" @click="GoMemberCenter">会员中心</span
         ><span class="iconfont icon-jiantou"></span>
       </div>
       <div>
@@ -70,6 +70,11 @@ export default {
         path: "/withdrawal",
       });
     },
+    GoMemberCenter(){
+      this.$router.push({
+        path: "/MemberCenter",
+      });
+    }
   },
 };
 </script>

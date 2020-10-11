@@ -7,6 +7,7 @@ import My from '@/pages/My/index'
 import Withdrawal from '@/components/withdrawal/index'
 import Login from '@/components/Login/index'
 import VerificationCode from '@/components/VerificationCode/index'
+import MemberCenter from '@/components/MemberCenter/index'
 Vue.use(VueRouter)
 
 const routes = [
@@ -62,6 +63,14 @@ const routes = [
     path:"/verificationCode",
     name:"VerificationCode",
     component:VerificationCode,
+    meta:{
+      footShow: false, // true显示，false隐藏
+    }
+  },
+  {
+    path:"/memberCenter",
+    name:"MemberCenter",
+    component:MemberCenter,
     meta:{
       footShow: false, // true显示，false隐藏
     }
