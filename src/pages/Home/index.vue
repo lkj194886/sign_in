@@ -191,7 +191,6 @@ export default {
 </script>
 <style lang="scss" >
 .concent {
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,6 +251,20 @@ export default {
         // color: #ffffff;
         .sign_in_schedule {
           width: 95%;
+          .van-step__title {
+            color: #ffffff;
+          }
+          .van-step__circle-container {
+            .van-step__circle {
+              background-color: rgba(255, 255, 255, 1);
+            }
+          }
+          .van-step__line {
+            background-color: rgba(242, 243, 245, 0.7);
+          }
+          .van-step--finish .van-step__line {
+            background-color: rgba(255, 255, 255, 1);
+          }
         }
         .sign_in_btn {
           // display: flex;

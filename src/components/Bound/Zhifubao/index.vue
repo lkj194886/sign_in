@@ -3,7 +3,11 @@
     <nav-bar left-text="绑定支付宝" left-arrow @click-left="onClickLeft" />
     <div class="from">
       <div class="account">
-        <input type="text" placeholder="请输入您的支付宝账号" v-model="account" />
+        <input
+          type="text"
+          placeholder="请输入您的支付宝账号"
+          v-model="account"
+        />
       </div>
       <div class="account_name">
         <input
@@ -41,7 +45,11 @@ export default {
       this.$router.go(-1);
     },
   },
-  mounted() {},
+  mounted() {
+    this.$mui.back = () => {
+      this.$router.go(-1);
+    };
+  },
 };
 </script>
 <style lang="scss" scoped>

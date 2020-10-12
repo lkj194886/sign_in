@@ -12,7 +12,7 @@
         <p class="vip">会员权益</p>
         <p class="up">普通会员</p>
       </div>
-      <div class="my_zhongxin"><span class="iconfont icon-jiantou"></span></div>
+      <div class="my_zhongxin"></div>
     </div>
     <div class="my_balance_withdraw">
       <div>

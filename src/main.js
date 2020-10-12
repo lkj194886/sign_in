@@ -4,10 +4,10 @@ import 'vant/lib/index.css';
 import router from './router'
 import store from "./store/index"
 import "./static/css/iconfont.css"
-// import MintUI from 'mint-ui'
-// import 'mint-ui/lib/style.css'
+import Mui from 'vue-awesome-mui';
+Vue.use(Mui)
+Vue.prototype.$mui = Mui;
 Vue.config.productionTip = false
-// Vue.use(MintUI)
 import axios from "axios";
 axios.defaults.headers.post["Content-type"] = "application/json";
 axios.defaults.baseURL = "http://192.168.0.102:8090";

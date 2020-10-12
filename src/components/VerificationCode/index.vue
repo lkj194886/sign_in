@@ -29,16 +29,19 @@ import { NavBar } from "vant";
 export default {
   mounted() {
     //   console.log("!")
+    this.$mui.back = () => {
+      this.$router.go(-1);
+    };
     this.getCode();
     this.getAgainCode(); //需要触发的函数
-    this.$store.commit("$_setsumphone",this.Phone);
+    this.$store.commit("$_setsumphone", this.Phone);
   },
   data() {
     return {
-      Phone:this.$route.params.phone,
-      count:"",
-      timer:null,
-      show:true,
+      Phone: this.$route.params.phone,
+      count: "",
+      timer: null,
+      show: true,
     };
   },
   components: {
@@ -81,53 +84,51 @@ export default {
   font-size: 0.9rem;
 }
 
-    .LoginButton{
-        .loginButton{
-            width: 90%;
-            margin-top: 0.5rem;
-            height: 2.7rem;
-            background-color: rgb(138, 133, 133);
-            border-radius: 2rem;
-            border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
-            font-size: 1.1rem;
-            color: white;
-            letter-spacing: 0.1rem;
-        }
-    }
-    .loginButtonAgain{
-        width: 90%;
-        margin-top: 0.5rem;
-        height: 2.7rem;
-        background-color: rgb(199, 190, 190);
-        border-radius: 2rem;
-        border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
-        font-size: 1.1rem;
-        letter-spacing: 0.1rem;
-    }
-    .CodeFlex{
-        .CodeTest{
-            width: 80%;
-            margin-top: 10%;
-            margin-bottom: 5%;
-            margin-left: 9%;
-        }
-        .CodePhoneTest{
-            width: 60%;
-            margin-left: 9%;
-        }
-        .CodeValue{
-            width: 85%;
-            height: 50%;
-            margin-top: 20%;
-        }
-        .LoginButton{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 85%;
-            margin-top: 5%;
-        }
-    }
-    
-    
+.LoginButton {
+  .loginButton {
+    width: 90%;
+    margin-top: 0.5rem;
+    height: 2.7rem;
+    background-color: rgb(138, 133, 133);
+    border-radius: 2rem;
+    border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
+    font-size: 1.1rem;
+    color: white;
+    letter-spacing: 0.1rem;
+  }
+}
+.loginButtonAgain {
+  width: 90%;
+  margin-top: 0.5rem;
+  height: 2.7rem;
+  background-color: rgb(199, 190, 190);
+  border-radius: 2rem;
+  border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+}
+.CodeFlex {
+  .CodeTest {
+    width: 80%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    margin-left: 9%;
+  }
+  .CodePhoneTest {
+    width: 60%;
+    margin-left: 9%;
+  }
+  .CodeValue {
+    width: 85%;
+    height: 50%;
+    margin-top: 20%;
+  }
+  .LoginButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    margin-top: 5%;
+  }
+}
 </style>

@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <transition name="slide-fade"  mode="out-in" :duration="{ enter: 500, leave: 0 }"> -->
     <router-view style="padding-bottom: 60px"></router-view>
-    
+
     <!-- </transition> -->
     <tabbar v-model="active" route class="a" v-show="$route.meta.footShow">
       <tabbar-item replace icon="home-o" to="/">首页</tabbar-item>
@@ -12,9 +12,7 @@
       <tabbar-item replace icon="share-o" to="/invitation">邀请</tabbar-item>
       <tabbar-item replace icon="manager-o" to="/my">我的</tabbar-item>
     </tabbar>
-   
   </div>
-  
 </template>
 
 <script>
@@ -25,7 +23,6 @@ export default {
   components: {
     Tabbar,
     TabbarItem,
-
   },
   data() {
     return {
@@ -35,13 +32,26 @@ export default {
     };
   },
   watch: {},
-  mounted() {},
+  mounted() {
+    var backcount = 0;
+    this.$mui.back = () => {
+      if (this.$mui.os.ios) return;
+      if (backcount > 0) {
+        if (this.$mui.plus) this.$mui.plus.runtime.quit();
+        return;
+      }
+      this.$layer.msg("再点击一次退出应用!");
+      backcount++;
+      setTimeout(() => {
+        backcount = 0;
+      }, 2000);
+    };
+  },
   methods: {},
 };
 </script>
 
-<style>
-
+<style > 
 .slide-fade {
   position: fixed;
   left: 0;
@@ -79,5 +89,11 @@ export default {
 .van-steps {
   overflow: hidden;
   /* // background-color: #fff */
+}
+.van-icon.van-icon-arrow-left.van-nav-bar__arrow {
+  color: #000000;
+}
+.van-nav-bar__text{
+  color: #000000;
 }
 </style>

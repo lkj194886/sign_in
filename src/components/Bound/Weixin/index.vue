@@ -41,7 +41,11 @@ export default {
       this.$router.go(-1);
     },
   },
-  mounted() {},
+  mounted(){
+    this.$mui.back = () => {
+      this.$router.go(-1);
+    };
+  }
 };
 </script>
 <style lang="scss" scoped>
