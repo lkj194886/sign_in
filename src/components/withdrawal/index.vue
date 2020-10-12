@@ -24,8 +24,8 @@
     </div>
     <div class="bound_content">
       <div class="not_bound">
-        <span class="tishi_bound">您还未绑定支付宝账号</span
-        ><span class="gobound">去绑定></span>
+        <span class="tishi_bound">您还未绑定{{notBound}}账号</span
+        ><span class="gobound" @click="bound">去绑定<span class="iconfont icon-jiantou"></span></span>
       </div>
     </div>
     <div class="withdrawal_information">
@@ -66,12 +66,26 @@ export default {
   data() {
     return {
       active: 0,
+      notBound:"微信"
     };
   },
   methods: {
     onClickLeft() {
       this.$router.go(-1);
     },
+    bound(){
+      if(this.notBound==="微信")
+      {
+        this.$router.push({
+        path:"/weixin"
+      })
+      }
+      if(this.notBound==="支付宝"){
+         this.$router.push({
+        path:"/zhifubao"
+      })
+      }
+    }
   },
 };
 </script>
@@ -132,7 +146,7 @@ export default {
         color: red;
       }
       .gobound {
-        flex: 15%;
+        flex: 25%;
         margin-right: 10px;
       }
     }
