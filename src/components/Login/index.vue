@@ -2,8 +2,9 @@
 
     <div class="LoginFlex">
       <div class="LoginColor" v-text="Login"></div>
+      <div class="LoginPhotoLogo"><img :src="LoginPhotoLogo"/></div>
       <div class="TestPhoneColor"><input class="PhoneColor" placeholder="输入手机号" v-model="GetPone"/></div> 
-      <div class="LoginButton"><button class="loginButton" @click="GoCode"><span>获取验证码</span></button></div> 
+      <div class="LoginButton"><button  :style='isStyle' class="loginButton" @click="GoCodeAgain"><span>获取验证码</span></button></div> 
       <div class="ClauseColor">{{clauseColor}}<span v-html="clasuse"></span><span v-html="privacy"></span></div>
     </div>
     
@@ -21,9 +22,19 @@ export default {
             clasuse:"《<a href='#'>用户协议</a>》和",
             privacy:"《<a href='#'>隐私政策</a>》",
             GetPone:'',
+            LoginPhotoLogo:require("../../static/img/QuWeiLogo.png"),
+            buttonStyle:"background-color: rgb(201, 6, 6)",
+            isStyle:"background-color: red",
         }
     },
+    mounted(){
+        
+    },
     methods: {
+        GoCodeAgain(){
+            this.isStyle = this.buttonStyle
+            setTimeout(this.GoCode,"400")
+        },
         GoCode(){
             this.$router.push({
                 name:'VerificationCode',
@@ -44,7 +55,6 @@ export default {
         color: rgb(110, 110, 105);
         font-size: 1.2rem;
         .PhoneColor{
-            // background-color: #efefef;
             border-color:#555353; 
             border-style:solid; 
             border-top-width:0px; 
@@ -56,7 +66,7 @@ export default {
     }
     .ClauseColor{
         color: rgb(110, 110, 105);
-        font-size: 0.7%;
+        font-size: 0.8rem;
         .ClauseColor span{
             text-align: center;
         }
@@ -66,14 +76,22 @@ export default {
             width: 90%;
             margin-top: 6%;
             height: 2.7rem;
-            background-color: rgb(110, 108, 108);
+            background-color: red;
             border-radius: 2rem;
             border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
         }
         .loginButton span{
             color: white;
             font-size: 1.1rem;
+            font-weight: 550;
             letter-spacing: 0.2rem;
+        }
+    }
+    .LoginPhotoLogo{
+        img{
+            border-radius: 3.5rem;
+            width: 7rem;
+            height: 7rem;
         }
     }
     .LoginFlex{
@@ -88,7 +106,7 @@ export default {
         .TestPhoneColor{
             width: 90%;
             margin-left: 8%;
-            margin-bottom: 12%;
+            margin-top: -10%;
         }
         .ClauseColor{
             width: 90%;
@@ -99,7 +117,11 @@ export default {
         .LoginButton{
             width: 95%;  
             margin-left: 8%;
-            margin-top: -10%;
+            margin-top: 1%;
+        }
+        .LoginPhotoLogo{
+           position: relative;
+           top: -120px;
         }
     }
 

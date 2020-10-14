@@ -26,24 +26,25 @@
     </div>
     <divider />
     <div class="my_function">
-      <div>
-        <span class="left_title">联系客服</span
-        ><span class="iconfont icon-jiantou"></span>``
+
+      <div @click="DialogCopy">
+        <span class="left_title" id="val">联系客服<span class="iconfontAgain">微信:18359300426</span></span 
+        ><span class="iconfont icon-jiantou"></span>
       </div>
       <div>
         <span class="left_title" @click="GoMemberCenter">会员中心</span
         ><span class="iconfont icon-jiantou"></span>
       </div>
       <div>
-        <span class="left_title">账户明细</span
+        <span class="left_title" @click="GoAccountdetails">账户明细</span
         ><span class="iconfont icon-jiantou"></span>
       </div>
       <div>
-        <span class="left_title">广告投放</span
+        <span class="left_title" @click="GoAdvertising">广告投放</span
         ><span class="iconfont icon-jiantou"></span>
       </div>
       <div>
-        <span class="left_title">我的邀请</span
+        <span class="left_title" @click="GoMyInvitation">我的邀请</span
         ><span class="iconfont icon-jiantou"></span>
       </div>
       <div><span class="left_title">邀请人ID: LJWZUISHUAI</span></div>
@@ -52,9 +53,11 @@
 </template>
 <script>
 import { Divider } from "vant";
+import { Dialog } from 'vant';
 export default {
   components: {
     Divider,
+    [Dialog.Component.name]: Dialog.Component,
   },
   data() {
     return {
@@ -62,7 +65,7 @@ export default {
     };
   },
   mounted() {
-    
+
   },
   methods: {
     withdrawal() {
@@ -74,7 +77,48 @@ export default {
       this.$router.push({
         path: "/MemberCenter",
       });
-    }
+    },
+    GoAccountdetails(){
+      this.$router.push({
+        path: "/Accountdetails",
+      });
+    },
+    GoAdvertising(){
+      this.$router.push({
+        path: "/Advertising",
+      });
+    },
+    GoMyInvitation(){
+      this.$router.push({
+        path: "/MyInvitation",
+      });
+    },
+
+    DialogCopy(){
+          let url = "18359300426";
+          let oInput = document.createElement('input');
+          oInput.value = url;
+          document.body.appendChild(oInput);
+          oInput.select(); // 选择对象;
+          console.log(oInput.value)
+          document.execCommand("Copy"); // 执行浏览器复制命令
+          oInput.remove()
+      Dialog.alert({
+        title: '微信号已复制成功',
+        width:"75%",
+        message: '已成功复制客服微信\n'+
+                 '可以去微信里添加好友了',
+        confirmButtonText:'知道了',
+        beforeClose,
+      });
+      function beforeClose(action, done) {
+        if (action === 'confirm') {
+          done();
+        } else {
+          done();
+        }
+      }
+    },
   },
 };
 </script>
@@ -172,5 +216,9 @@ export default {
       }
     }
   }
+}
+.iconfontAgain{
+  padding-left: 25%;
+  color: rgb(100, 104, 100);
 }
 </style>

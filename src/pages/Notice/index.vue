@@ -38,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
   background: blanchedalmond;
   align-items: center;
   .bulletin_board {

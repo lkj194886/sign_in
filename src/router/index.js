@@ -8,6 +8,9 @@ import Withdrawal from '@/components/withdrawal/index'
 import Login from '@/components/Login/index'
 import VerificationCode from '@/components/VerificationCode/index'
 import MemberCenter from '@/components/MemberCenter/index'
+import Accountdetails from '@/components/Accountdetails/index'
+import Advertising from '@/components/Advertising/index'
+import MyInvitation from '@/components/MyInvitation/index'
 Vue.use(VueRouter)
 
 const routes = [
@@ -74,7 +77,31 @@ const routes = [
     meta:{
       footShow: false, // true显示，false隐藏
     }
-  }
+  },
+  {
+    path:"/accountdetails",
+    name:"Accountdetails",
+    component:Accountdetails,
+    meta:{
+      footShow: false, // true显示，false隐藏
+    }
+  },
+  {
+    path:"/advertising",
+    name:"Advertising",
+    component:Advertising,
+    meta:{
+      footShow: false, // true显示，false隐藏
+    }
+  },
+  {
+    path:"/myInvitation",
+    name:"MyInvitation",
+    component:MyInvitation,
+    meta:{
+      footShow: false, // true显示，false隐藏
+    }
+  },
 ]
 
 const router = new VueRouter({

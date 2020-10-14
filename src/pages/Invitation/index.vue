@@ -14,11 +14,13 @@
       </div>
       <div class="invitationButton" @click="photoShow"><span>立即邀请赢取福利</span></div>
     </div>
-    <div v-show="show" class='popContainer'>
-      <img  src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" >
-      <button class="buttonShowPhoto"  >
-        <a href="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"  download="img" ><span>点击保存</span></a>
+    <div v-show="show" class='popContainer'  @click="EndphotoShow">
+      <img  src="../../static/img/ceshi111.jpeg">
+      <a href="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"   download="img">
+        <button class="buttonShowPhoto">
+            <span>点击保存</span>
         </button>
+      </a>
     </div>
   </div>
 </template>
@@ -41,66 +43,8 @@
         this.show=true
       },
       EndphotoShow(){
-        this.toSave("https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg")
         this.show=false
       },
-    //   downCom() {
-    //     let that = this;
-    //     that.$http.files().then(res => {
-    //     let hreLocal="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg";
-    //     hreLocal = res.data.data.url;
-    //     this.toSave(hreLocal,"xiaolin")
-    //   });
-    // },
-    //   toSave(url,name) {
-    //     let image = new Image()
-    //     image.setAttribute('crossOrigin', 'anonymous')
-    //     image.src = url
-    //     image.onload = () => {
-    //       let canvas = document.createElement('canvas')
-    //       canvas.width = image.width
-    //       canvas.height = image.height
-    //       let ctx = canvas.getContext('2d')
-    //       ctx.drawImage(image, 0, 0, image.width, image.height)
-    //       canvas.toBlob((blob) => {
-    //         let url = URL.createObjectURL(blob)
-    //         this.download(url,name)
-    //         // 用完释放URL对象
-    //         URL.revokeObjectURL(url)
-    //       })
-    //     }
-    //   },
-    //   download(href, name) {
-    //    let eleLink = document.createElement('a')
-    //    eleLink.download = name
-    //    eleLink.href = href
-    //    eleLink.click()
-    //    eleLink.remove()
-    //  }
-      
-    // toSave(imgsrc, name) {//下载图片地址和图片名
-    //     var image = new Image();
-    //     // 解决跨域 Canvas 污染问题
-    //     image.setAttribute("crossOrigin", "anonymous");
-    //     image.onload = function() {
-    //       var canvas = document.createElement("canvas");
-    //       canvas.width = image.width;
-    //       canvas.height = image.height;
-    //       var context = canvas.getContext("2d");
-    //       context.drawImage(image, 0, 0, image.width, image.height);
-    //       var url = canvas.toDataURL("image/png"); //得到图片的base64编码数据
-      
-    //       var a = document.createElement("a"); // 生成一个a元素
-    //       var event = new MouseEvent("click"); // 创建一个单击事件
-    //       a.download = name || "photo"; // 设置图片名称
-    //       a.href = url; // 将生成的URL设置为a.href属性
-    //       a.dispatchEvent(event); // 触发a的单击事件
-    //     };
-    //     image.src = imgsrc;
-    //   },
-    //   downs(){
-    //     this.toSave(this.pic.url, 'pic')
-    //   }
 
     }
   };
@@ -114,7 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
   background-color: blanchedalmond;
   align-items: center;
   .bulletin_board {

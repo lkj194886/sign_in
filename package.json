@@ -11,6 +11,7 @@
     "@auspicious/vue-vercode": "^1.0.3",
     "axios": "^0.20.0",
     "bmap": "^1.0.1",
+    "clipboard": "^2.0.6",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
     "html2canvas": "^1.0.0-rc.7",

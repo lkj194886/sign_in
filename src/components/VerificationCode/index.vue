@@ -11,7 +11,6 @@
     <div class="CodePhoneTest">验证码已发送到{{ Phone }}</div>
     <div class="CodeValue"><vue-vercode ref="vercode" /></div>
     <div class="LoginButton">
-      <!-- <button class="loginButton"><span>获取验证码</span></button> -->
       <button @click="getAgainCode" class="loginButton" v-show="show">
         获取验证码
       </button>
@@ -83,10 +82,10 @@ export default {
 
     .LoginButton{
         .loginButton{
-            width: 90%;
+            width: 95%;
             margin-top: 0.5rem;
             height: 2.7rem;
-            background-color: rgb(138, 133, 133);
+            background-color: rgb(230, 74, 74);
             border-radius: 2rem;
             border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
             font-size: 1.1rem;
@@ -95,14 +94,15 @@ export default {
         }
     }
     .loginButtonAgain{
-        width: 90%;
+        width: 95%;
         margin-top: 0.5rem;
         height: 2.7rem;
-        background-color: rgb(199, 190, 190);
+        background-color: rgb(255, 109, 109);
         border-radius: 2rem;
         border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
         font-size: 1.1rem;
         letter-spacing: 0.1rem;
+        color: white;
     }
     .CodeFlex{
         .CodeTest{
