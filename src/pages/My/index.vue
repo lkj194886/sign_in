@@ -26,30 +26,27 @@
     </div>
     <divider />
     <div class="my_function">
-
-      <div @click="DialogCopy">
-        <span class="left_title" id="val">联系客服<span class="iconfontAgain">微信:18359300426</span></span> 
-      <div>
+      <div  @click="DialogCopy">
         <span class="iconfont icon-lianxikefu"></span>
-        <span class="left_title">联系客服</span
+        <span class="left_title">联系客服<span class="iconfontAgain">微信:18359300426</span></span
         ><span class="iconfont icon-jiantou"></span>
       </div>
-      <div>
+      <div  @click="GoMemberCenter">
         <span class="iconfont icon-huiyuanzhongxin"></span>
-        <span class="left_title" @click="GoMemberCenter">会员中心</span
+        <span class="left_title">会员中心</span
         ><span class="iconfont icon-jiantou"></span>
       </div>
-      <div>
+      <div @click="GoAccountdetails">
         <span class="iconfont icon-mingxi1"></span>
         <span class="left_title">账户明细</span
         ><span class="iconfont icon-jiantou"></span>
       </div>
-      <div>
+      <div @click="GoAdvertising">
         <span class="iconfont icon-guanggao"></span>
         <span class="left_title">广告投放</span
         ><span class="iconfont icon-jiantou"></span>
       </div>
-      <div>
+      <div @click="GoMyInvitation">
         <span class="iconfont icon-yaoqing1"></span>
         <span class="left_title">我的邀请</span
         ><span class="iconfont icon-jiantou"></span>
@@ -73,9 +70,6 @@ export default {
     return {
       imgsrc: require("@/static/img/imgg.jpg"),
     };
-  },
-  mounted() {
-
   },
   mounted() {},
   methods: {
@@ -130,6 +124,8 @@ export default {
         }
       }
     },
+
+
   },
 };
 </script>

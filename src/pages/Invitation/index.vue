@@ -44,20 +44,9 @@ export default {
       this.show = true;
     },
     EndphotoShow() {
-      this.toSave(
-        "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
-      );
       this.show = false;
     },
-    methods:{
-      photoShow(){
-        this.show=true
-      },
-      EndphotoShow(){
-        this.show=false
-      },
-
-    }
+    
   }
 }
 </script>
