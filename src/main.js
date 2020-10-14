@@ -3,8 +3,11 @@ import App from './App.vue'
 import 'vant/lib/index.css';
 import router from './router'
 import store from "./store/index"
+import "./static/css/iconfont.css"
+import Mui from 'vue-awesome-mui';
+Vue.use(Mui)
+Vue.prototype.$mui = Mui;
 Vue.config.productionTip = false
-//引入axios
 import axios from "axios";
 axios.defaults.headers.post["Content-type"] = "application/json";
 axios.defaults.baseURL = "http://localhost:8090";

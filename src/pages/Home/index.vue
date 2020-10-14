@@ -164,13 +164,13 @@ export default {
 
     //获取天气及每日提醒
     getCity() {
-      // console.log(this.cityy);
       this.cityParams.city = this.LocationCity.replace("市", "");
       this.$axios
         .get("city/getCity", { params: this.cityParams })
         .then((res) => {
           this.weather = res.data.data.forecast[0].type;
           this.remind = res.data.data.forecast[0].notice;
+          //将数据存入全局变量
           this.$store.commit("$_setweather", {
             weather: (this.weather = res.data.data.forecast[0].type),
             remind: (this.remind = res.data.data.forecast[0].notice),
@@ -178,11 +178,12 @@ export default {
         });
     },
 
+    //对请求数据进行处理
     setCity() {
       this.show = false;
       this.divShow = true;
       clearInterval(this.timer);
-      this.cityParams.city = this.LocationCity.replace("市", "");
+
       this.getCity();
     },
   },
@@ -250,6 +251,20 @@ export default {
         // color: #ffffff;
         .sign_in_schedule {
           width: 95%;
+          .van-step__title {
+            color: #ffffff;
+          }
+          .van-step__circle-container {
+            .van-step__circle {
+              background-color: rgba(255, 255, 255, 1);
+            }
+          }
+          .van-step__line {
+            background-color: rgba(242, 243, 245, 0.7);
+          }
+          .van-step--finish .van-step__line {
+            background-color: rgba(255, 255, 255, 1);
+          }
         }
         .sign_in_btn {
           // display: flex;

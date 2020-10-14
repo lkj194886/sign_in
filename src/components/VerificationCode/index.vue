@@ -28,16 +28,19 @@ import { NavBar } from "vant";
 export default {
   mounted() {
     //   console.log("!")
+    this.$mui.back = () => {
+      this.$router.go(-1);
+    };
     this.getCode();
     this.getAgainCode(); //需要触发的函数
-    this.$store.commit("$_setsumphone",this.Phone);
+    this.$store.commit("$_setsumphone", this.Phone);
   },
   data() {
     return {
-      Phone:this.$route.params.phone,
-      count:"",
-      timer:null,
-      show:true,
+      Phone: this.$route.params.phone,
+      count: "",
+      timer: null,
+      show: true,
     };
   },
   components: {

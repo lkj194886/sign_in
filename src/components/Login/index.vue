@@ -1,5 +1,5 @@
 <template>
-
+  <div>
     <div class="LoginFlex">
       <div class="LoginColor" v-text="Login"></div>
       <div class="LoginPhotoLogo"><img :src="LoginPhotoLogo"/></div>
@@ -7,7 +7,7 @@
       <div class="LoginButton"><button  :style='isStyle' class="loginButton" @click="GoCodeAgain"><span>获取验证码</span></button></div> 
       <div class="ClauseColor">{{clauseColor}}<span v-html="clasuse"></span><span v-html="privacy"></span></div>
     </div>
-    
+  </div>
 </template>
 
 
