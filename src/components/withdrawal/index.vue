@@ -9,21 +9,22 @@
     />
     <div class="withdrawal_nav_bottom"></div>
     <div class="withdrawal_way">
-      <div class="zhifubao">
-        <p>
-          <span class="iconfont icon-zhifubao"></span>
-          支付宝
-        </p>
-      </div>
-      <div class="weixin">
-        <p>
-          <span class="iconfont icon-weixin"></span>
-          微信
-        </p>
+      <div
+        :class="active == index ? 'active' : ''"
+        v-for="(item, index) in list"
+        :key="item.index"
+        @click="getItem(index)"
+      >
+        <div :class="item.divclass">
+          <p>
+            <span :class="item.spanclass"></span>
+            {{ item.content }}
+          </p>
+        </div>
       </div>
     </div>
     <div class="bound_content">
-      <div class="not_bound">
+      <div class="not_bound" v-if="show">
         <span class="tishi_bound">您还未绑定{{ notBound }}账号</span
         ><span class="gobound" @click="bound"
           >去绑定<span class="iconfont icon-jiantou"></span
@@ -67,8 +68,21 @@ export default {
   },
   data() {
     return {
-      active: 0,
-      notBound: "微信",
+      show: false,
+      active: -1,
+      notBound: "",
+      list: [
+        {
+          divclass: "zhifubao",
+          spanclass: "iconfont icon-zhifubao",
+          content: "支付宝",
+        },
+        {
+          divclass: "weixin",
+          spanclass: "iconfont icon-weixin",
+          content: "微信",
+        },
+      ],
     };
   },
   methods: {
@@ -87,6 +101,16 @@ export default {
         });
       }
     },
+    getItem(index) {
+      this.show = true;
+      this.active = index;
+      if (index === 0) {
+        this.notBound = "微信";
+      }
+      if (index === 1) {
+        this.notBound = "支付宝";
+      }
+    },
   },
   mounted() {
     this.$mui.back = () => {
@@ -100,41 +124,82 @@ export default {
   .withdrawal_nav_bottom {
     width: 90%;
     padding-top: 20px;
-    // border-bottom: 2px solid rgb(11, 131, 243);
   }
   .withdrawal_way {
     padding-top: 10px;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 10px;
+    // border: 1px solid red;
+    .active {
+      background-color: rgba(157, 168, 179, 0.5);
+      height: 102px;
+      width: 42%;
+      color: #ffffff;
+      // font-weight: 900;
+      // border: 1px solid red;
+    }
     div {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       align-items: center;
       margin-bottom: 10px;
-      width: 40%;
+      width: 42%;
       height: 100px;
-      border: 2px solid rgb(11, 131, 243);
+      // border: 1px solid red;
       border-radius: 15px;
-      span {
-        font-size: 2rem;
+      .zhifubao {
+        border: 2px solid rgb(11, 131, 243);
         display: flex;
-        // flex-wrap: wrap;
-        padding-bottom: 3px;
         justify-content: center;
+        flex-wrap: wrap;
         align-items: center;
-        text-align: center;
+        // margin-bottom: 10px;
+        width: 100%;
+        span {
+          font-size: 2rem;
+          display: flex;
+          // flex-wrap: wrap;
+          padding-bottom: 3px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+
+        .icon-zhifubao {
+          color: rgb(11, 131, 243);
+        }
+        .icon-weixin {
+          color: rgb(7, 193, 96);
+        }
       }
-      .icon-zhifubao {
-        color: rgb(11, 131, 243);
+      .weixin {
+        border: 2px solid rgb(11, 131, 243);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        // margin-bottom: 10px;
+        width: 100%;
+        span {
+          font-size: 2rem;
+          display: flex;
+          // flex-wrap: wrap;
+          padding-bottom: 3px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+
+        .icon-zhifubao {
+          color: rgb(11, 131, 243);
+        }
+        .icon-weixin {
+          color: rgb(7, 193, 96);
+        }
       }
-      .icon-weixin {
-        color: rgb(7, 193, 96);
-      }
-    }
-    div:hover {
-      background-color: rgba($color: #504949, $alpha: 0.8);
-      color: #ffffff;
     }
   }
   .bound_content {

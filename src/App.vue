@@ -51,7 +51,7 @@ export default {
 };
 </script>
 
-<style > 
+<style >
 .slide-fade {
   position: fixed;
   left: 0;
@@ -93,7 +93,9 @@ export default {
 .van-icon.van-icon-arrow-left.van-nav-bar__arrow {
   color: #000000;
 }
-.van-nav-bar__text{
+.van-nav-bar__text {
+  /* background-color: red; */
   color: #000000;
+  font-size: 15px;
 }
 </style>
