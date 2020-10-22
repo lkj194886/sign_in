@@ -26,7 +26,22 @@
         </div>
       </div>
 
-      <div class="the_rules">活动规则</div>
+      <div class="bulletin_board">
+          <span class="notice_title">活动规则</span>
+          <div class="notice_concent">
+            第一天签到可获得奖励0.8七币、第二天签到可获得奖励1.6七币，第三天签<br />
+            到可获得奖励2.4七币。连续签到天数=奖励七币数量，最高可连续签到30天。<br />
+            每日领取福利一次奖励1个七币，根据会员等级权益区分每日领取福利的次数。<br />
+            普通3次、初级6次、中级10次、高级15次。<br />
+            <br />
+            其它说明
+            <br />
+            <br />
+            如果中间有一天间断未签到的，重先开始计算连续签到时间。
+            未领取完的福利将在次日清空，不可累积，每日重新计算福利次数。
+            活动奖励的七币不能直接提现，只能投放广告或则兑换后提现。
+          </div>
+      </div>
     </div>
   </div>
 </template>
@@ -209,8 +224,9 @@ export default {
       display: flex;
       width: 90%;
       height: 400px;
-      border: 2px solid rgb(11, 131, 243);
-      background-color: rgb(11, 131, 243);
+      // border: 2px solid rgb(11, 131, 243);
+      background: url("../../static/img/sign_Start.png") no-repeat;
+      background-size: 100%;
       border-radius: 15px;
       margin-top: 25px;
       justify-content: center;
@@ -287,7 +303,7 @@ export default {
     .the_rules {
       display: flex;
       width: 90%;
-      height: 250px;
+      height: 500px;
       border: 2px solid rgb(11, 131, 243);
       border-radius: 15px;
       margin-top: 60px;
@@ -297,4 +313,31 @@ export default {
     }
   }
 }
+
+.bulletin_board {
+    width: 90%;
+    border: 2px solid white;
+    background-color: white;
+    margin-top: 5rem;
+    border: 2px solid rgb(11, 131, 243);
+    border-radius: 15px;
+    .notice_title {
+      display: flex;
+      font-size: 1.12rem;
+      border-radius: 45px;
+      width: 40%;
+      padding: 5px 20px 5px 20px;
+      position: relative;
+      top: 1px;
+      align-items: center;
+      font-weight: 900;
+      justify-content: center;
+    }
+    .notice_concent {
+      font-size: 14px;
+      color: rgb(99, 96, 96);
+      // padding-bottom: 25px;
+      padding: 0 10px 55px 10px;
+    }
+  }
 </style>
