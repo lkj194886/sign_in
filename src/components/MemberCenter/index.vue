@@ -153,13 +153,13 @@ export default {
             height: 9rem;
         }
         span:last-of-type{
-            padding-left: 58%;
+            padding-left: 45%;
             line-height: 3rem;
         }
         .left_user{
             position: relative;
-            top: 28%;
-            left: 17%;
+            top: 20%;
+            left: 5%;
         }
     }
 
@@ -172,87 +172,88 @@ export default {
             height: 3rem;
         }
         .numberSpan{
-            padding-left: 65%;
+            padding-left: 80%;
             position: relative;
-            top: 28%;
+            top: -30%;
         }
         .numberSpan1{
-            padding-left: 66%;
+            padding-left: 68%;
             position: relative;
-            top: -10%;
+            top: -30%;
         }
     }
 
     .Memberlistson{
         .left_title1 {
             position: relative;
-            top: 28%;
-            left: 17%;
+            top: 15%;
+            left: 5%;
         }
     }
 
 
     .icon-yonghu1{
         font-size: 27px;
-        padding-left: 20px;
-        position: absolute;
-        top: 8%;
+        padding-left: 25px;
+        padding-top: 10px;
+        position: relative;
+        top: 20%;
         color: rgb(163, 149, 234);
         font-weight: 900;
     }
     .icon-yaoqing1{
         font-size: 27px;
         padding-left: 20px;
-        position: absolute;
-        top: 18%;
+        position: relative;
+        top: 20%;
         color: rgb(245, 169, 23);
         font-weight: 900;
     }
     .icon-shoujihao1{
         font-size: 27px;
         padding-left: 20px;
-        position: absolute;
-        top: 25.5%;
+        position: relative;
+        top: 20%;
         color: rgb(163, 149, 234);
         font-weight: 900;
     }
     .icon-shengjihuiyuan1{
         font-size: 27px;
         padding-left: 20px;
-        position: absolute;
-        top: 33%;
+        position: relative;
+        top: 20%;
         font-weight: 900;
         color: rgb(148, 99, 100);
     }
     .icon-guanbi1{
         font-size: 27px;
         padding-left: 20px;
-        position: absolute;
-        top: 40.5%;
+        position: relative;
+        top: 20%;
         font-weight: 900;
         color: rgb(242, 106, 110);
     }
     .icon-jiaru1{
         font-size: 27px;
         padding-left: 20px;
-        position: absolute;
-        top: 48%;
+        position: relative;
+        top: 20%;
         font-weight: 900;
         color: rgb(131, 30, 33);
     }
     .icon-weixin1{
         font-size: 27px;
         padding-left: 20px;
-        position: absolute;
-        top: 55.5%;
+        position: relative;
+        top: 20%;
         font-weight: 900;
         color: green;
     }
     .icon-zhifubao1{
         font-size: 27px;
         padding-left: 20px;
-        position: absolute;
-        top: 62.5%;
+        position: relative;
+        top: 20%;
         font-weight: 900;
         color: rgb(72, 132, 189);
     }
