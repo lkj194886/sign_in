@@ -5,14 +5,14 @@
       <div class="account">
         <input
           type="text"
-          placeholder="请输入您的支付宝账号"
+          placeholder="  请输入您的支付宝账号"
           v-model="account"
         />
       </div>
       <div class="account_name">
         <input
           type="text"
-          placeholder="请输入您的支付宝姓名"
+          placeholder="  请输入您的支付宝姓名"
           v-model="account_name"
         />
       </div>
@@ -54,12 +54,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 input {
-  border: 1px solid rgb(180, 180, 180);
-  background-color: rgb(230, 230, 230);
-  border-radius: 7px;
-  font-size: 1.4rem;
-  width: 98%;
-  height: 50px;
+  border: 1px solid #d5cbcb;
+  background-color: #eae5e5;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: 100%;
+  height: 40px;
   caret-color: rgb(255, 76, 89);
 }
 .bound {
@@ -79,10 +79,9 @@ input {
     }
   }
   .bound_notice {
+    color: black;
     line-height: 27px;
     width: 80%;
-    color: rgb(181, 181, 181);
-    // border: 1px solid red;
     font-size: 14px;
   }
   .bound_btn {
@@ -91,12 +90,12 @@ input {
     .btn {
       width: 100%;
       margin-top: 10px;
-      height: 50px;
-      // background-color: rgba($color: #ffffff, $alpha: 0.8);
+      height: 45px;
       border-radius: 25px;
       background-color: rgb(244, 74, 83);
       color: #ffffff;
-      // border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
+      font-size: 20px;
+      box-shadow:0 2px 0 rgb(228, 226, 226);
     }
   }
 }

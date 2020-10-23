@@ -105,10 +105,10 @@ export default {
       this.show = true;
       this.active = index;
       if (index === 0) {
-        this.notBound = "微信";
+        this.notBound = "支付宝";
       }
       if (index === 1) {
-        this.notBound = "支付宝";
+        this.notBound = "微信";
       }
     },
   },

@@ -12,16 +12,30 @@
             />
         </div>
         <div class="AdversingFlex">
-            <div class="AdvertsingTest">广告视频<span>0/5</span></div>
+            <!-- <div class="AdvertsingTest">广告视频<span>0/5</span></div> -->
+            <div class="AdvertsingSum">
+                <button class="AdvertsingTest"><span>信息流<br/>广告投放</span></button>
+                <button class="AdvertsingTest"><span>背景页<br/>广告投放</span></button>
+            </div>
+            <div class="PromptTest">
+                <p>
+                    投放系统升级中<br/>
+                    期间用户无法自行投放<br/>
+                    如需投放请联系客服<br/>
+                    结束时间另行通知<br/>
+                </p>
+            </div>
             <div class="AdvertsingTestTow">
                 <p>
-                      *111111111111111111111111111111111111111111111111111<br/>
-                    1111111111111111111111111111111111111111111111111111<br/>
-                    1111111111111111111111111111111111111111111111111111<br/>
+                    目前接入的品牌、游戏、金融、社交、购物类较多。<br/>
+                    请自行准备好广告图片和视频，广告图片和视频必须通
+                    过我们的审核才可投放(如图片大小以及视频质量).<br/>
+                    反动、暴力、黄色、医疗、药品、假冒产品等不允许发布。
+                    我们有权利将违法广告取消，并且不接受退款服务。<br/>
                 </p>
             </div>
             <div class="AdvertsingButtonSum">
-                <button class="AdvertsingButtonOne" @click="onClickRight">上传视频</button>
+                <button class="AdvertsingButtonOne" @click="onClickRight">上传文件</button>
                 <button class="AdvertsingButtonTow">申请投放</button>
             </div>
         </div>
@@ -85,28 +99,44 @@ export default {
         width: 100%;
         height: 82vh;
     }
+    .AdvertsingSum{
+        margin: 0 auto;
+        .AdvertsingTest:last-of-type{
+            margin-left: 1rem;
+        }
+    }
     .AdvertsingTest{
-        width: 100%;
-        height: 40px;
-        background-color: #f9f9f9;
-        border-left: 22px solid rgb(170, 164, 164);
-        font-size: 20px;
-        padding-top: 10px;
-        padding-left: 20px;
+        width: 10rem;
+        height: 8rem;
+        border-radius: 13%;
+        border: 3px solid grey;
+        background-color: white;
+        margin-top: 2rem;
+        
         span{
-            padding-left: 180px;
+            font-size: 20px;
+            text-align: center;
+        }
+    }
+    .PromptTest{
+        margin-top: 7%;
+        text-align: center;
+        p{
+            font-size: 20px;
+            font-weight: 600;
+            color: rgb(187, 186, 186);
         }
     }
 
     .AdvertsingTestTow{
         width: 100%;
-        height: 55px;
+        height: 7rem;
          background-color: #f9f9f9;
         p{
             font-size: 13px;
-            color: rgb(179, 170, 170);
-            text-align: center;
+            color: rgb(194, 187, 187);
             padding-top: 5px;
+            padding-left: 10px;
         }
     }
 
@@ -132,7 +162,7 @@ export default {
             align-self:flex-start;    
         }
         .AdvertsingTestTow{
-            margin-top: 400px;
+            margin-top: 120px;
             align-self:flex-end;
         }
         .AdvertsingButtonSum{

@@ -47,7 +47,7 @@
         ><span class="iconfont icon-jiantou"></span>
       </div>
       <div @click="GoMyInvitation">
-        <span class="iconfont icon-yaoqing1"></span>
+        <span class="iconfont icon-yaoqing"></span>
         <span class="left_title">我的邀请</span
         ><span class="iconfont icon-jiantou"></span>
       </div>
@@ -257,7 +257,7 @@ export default {
         font-weight: 900;
         color: rgb(175, 200, 96);
       }
-      .icon-yaoqing1 {
+      .icon-yaoqing {
         font-size: 25px;
         padding-left: 10px;
         color: rgb(245, 169, 23);
@@ -273,7 +273,7 @@ export default {
   }
 }
 .iconfontAgain{
-  padding-left: 25%;
+  padding-left: 23%;
   color: rgb(100, 104, 100);
 }
 </style>
