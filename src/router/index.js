@@ -13,6 +13,7 @@ import Advertising from '@/components/Advertising/index'
 import MyInvitation from '@/components/MyInvitation/index'
 import Weixin from "@/components/Bound/Weixin/index"
 import Zhifubao from "@/components/Bound/Zhifubao/index"
+import Exchange from "@/components/Exchange/index"
 Vue.use(VueRouter)
 
 const routes = [{
@@ -80,26 +81,26 @@ const routes = [{
     }
   },
   {
-    path:"/accountdetails",
-    name:"Accountdetails",
-    component:Accountdetails,
-    meta:{
+    path: "/accountdetails",
+    name: "Accountdetails",
+    component: Accountdetails,
+    meta: {
       footShow: false, // true显示，false隐藏
     }
   },
   {
-    path:"/advertising",
-    name:"Advertising",
-    component:Advertising,
-    meta:{
+    path: "/advertising",
+    name: "Advertising",
+    component: Advertising,
+    meta: {
       footShow: false, // true显示，false隐藏
     }
   },
   {
-    path:"/myInvitation",
-    name:"MyInvitation",
-    component:MyInvitation,
-    meta:{
+    path: "/myInvitation",
+    name: "MyInvitation",
+    component: MyInvitation,
+    meta: {
       footShow: false, // true显示，false隐藏
     }
   },
@@ -116,6 +117,14 @@ const routes = [{
     path: "/zhifubao",
     name: "Zhifubao",
     component: Zhifubao,
+    meta: {
+      footShow: false
+    }
+  },
+  {
+    path: "/exchange",
+    name: "Exchange",
+    component: Exchange,
     meta: {
       footShow: false
     }

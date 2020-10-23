@@ -9,7 +9,7 @@
           <span class="region_day">{{ date }}</span>
           <span class="region_month">{{ month }}&#12288;{{ day }}</span>
           <span class="region_weather">{{ LocationCity }} {{ weather }}</span>
-          <span class="region_fitting">{{ remind }}</span>
+          <!-- <span class="region_fitting">{{ remind }}</span> -->
         </div>
         <div class="sign_in_detailed">
           <div class="sign_in_schedule">
@@ -152,7 +152,7 @@ export default {
           _this.$store.commit("$_setLocationCity", {
             LocationCity: { LocationCity: _this.LocationCity },
           });
-          _this.timer = setInterval(_this.setCity, 1500);
+          _this.timer = setInterval(_this.setCity(), 1500);
         },
         function (e) {
           console.log(e);
