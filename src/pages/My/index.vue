@@ -22,7 +22,7 @@
         <p>$&nbsp;&nbsp;&nbsp;&nbsp;200<br />七币</p>
       </div>
       <div @click="withdrawal" class="tixian"><p>提现</p></div>
-      <div class="duihuan"><p>兑换</p></div>
+      <div class="duihuan" @click="exchange"><p>兑换</p></div>
     </div>
     <divider />
     <div class="my_function">
@@ -125,7 +125,11 @@ export default {
       }
     },
 
-
+    exchange(){
+      this.$router.push({
+        path:"/exchange"
+      })
+    }
   },
 };
 </script>
