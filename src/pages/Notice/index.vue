@@ -1,16 +1,23 @@
 <template>
   <div class="notice">
     <div class="bulletin_board">
-      <span class="notice_title">公告栏</span>
+      <span class="notice_title">公告</span>
       <div class="notice_concent">
-        1、设置容器为弹性盒子布局 display: flex; <br />
-        2、设置弹性盒子中子元素的排列方式flex-direction: row | column;<br />
-        3、设置弹性子元素超出父容器时是否换行flex-warp: nowrap | wrap;<br />
-        4、flex-direction 和 flex-wrap的简写 flex-flow:flex-direction flex-wrap;
+        <!-- 投放系统升级中，期间用户无法自行投放，如需投放请联系客服。结束时间另行通知。 <br />
+        普通会员每日可以领3次福利，提现手续费95%，投放广告计价每小时低至24七币<br />
+        初级会员每日可以领6次福利，提现手续费90%，投放广告计价每小时低至20七币<br />
+        中级会员每日可以领10次福利，提现手续费75%，投放广告计价每小时低至16七币<br />
+        高级会员每日可以领15次福利，提现手续费65%，投放广告计价每小时低至12七币<br />
+        成为合伙人可获得被邀请人提现的活跃奖励100%七币，合伙人提现手续费70%，投放广告计价每小时低至8七币。<br /> -->
+        0元投资，在家创业。奖励终身有效，不设上限，邀请的人多了，你以后躺着就有收入。<br />
+        此次活动所有普通会员符合要求的可免费升级初级会员，邀请人达到50人奖励300七币，广告时长由原来的半小时升级一小时，广告时长翻倍，七币用不完可以兑换后提现啦，余额可以兑换影视会员、礼品券、实物等一系列产品，加入合伙人还可以赚取更多七币，快来参与吧。
         <br />
-        5、设置弹性子元素在主轴（横轴）方向上的对齐方式justify-content:
-        flex-start | flex-end | center | space-between |space-around; <br />
-        6、设置弹性子元素在侧轴（纵轴）方向上的对齐方式;<br />
+        <br />
+        详情请咨询客服！
+        <br />
+        <br />
+       本次活动时间为2020年10月16日<br />
+       最终解释权归趣味极速版平台所有
       </div>
     </div>
   </div>
@@ -42,7 +49,7 @@
   background: blanchedalmond;
   // align-items: center;
   .bulletin_board {
-    width: 80%;
+    width: 90%;
     border: 2px solid white;
     background-color: white;
     margin-top: 8rem;
