@@ -24,10 +24,8 @@
         </button>
       </a>
     </div>  -->
-    <div class="invitationButtonFlex">
-      <div class="invitationButton" @click="photoShow">
-        <span>立即邀请赢取福利</span>
-      </div>
+    <div class="invitationButtonFlex"  @click="photoShow">
+        <img :src="Share_Button" width="280px" height="80px"  class="invitationButton"/>
     </div>
     
 
@@ -126,42 +124,31 @@ export default {
                 transform: scale(1);  /*开始为原始大小*/
             }
             25%{
-                transform: scale(1.05); /*放大1.1倍*/
+                transform: scale(1.07); /*放大1.1倍*/
             }
             50%{
                 transform: scale(1);
             }
             75%{
-                transform: scale(1.05);
+                transform: scale(1.07);
             }
         }
 
 
   .invitationButton {
       z-index: 11;
-      width: 150%;
-      height: 30%;
-      line-height: 2.7rem;
-      border-radius: 35px;
       display: flex;
       align-items: center;
-      background-color: #fcf049;
-      border-bottom:5px solid rgb(99, 168, 82);
       position: relative;
-      top: 15px;
-
+      top: 25px;
+      left: 25%;
       background-size: 150px 200px;
       animation-name: scaleDraw; /*关键帧名称*/
       animation-timing-function: ease-in-out; /*动画的速度曲线*/
       animation-iteration-count: infinite;  /*动画播放的次数*/
       animation-duration: 4s; /*动画所花费的时间*/
 
-      background-image: linear-gradient(rgb(255, 251, 0), #792257);
-      span {
-        letter-spacing: 1px;
-        color: rgb(77, 66, 66);
-        font-size: 19px;
-      }
+      
     }
     
     .invitationButtonFlex{

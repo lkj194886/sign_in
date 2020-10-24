@@ -27,7 +27,6 @@ import VueVercode from "@auspicious/vue-vercode";
 import { NavBar } from "vant";
 export default {
   mounted() {
-    //   console.log("!")
     this.$mui.back = () => {
       this.$router.go(-1);
     };
