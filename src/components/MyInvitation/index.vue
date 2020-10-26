@@ -12,7 +12,7 @@
                 @click-right="onClickRight"
             />
         </div>
-        <div class="MyInvitationTest">邀请进度<span>{{InvitationNumber}}/30</span></div>
+        <!-- <div class="MyInvitationTest">邀请进度<span>{{InvitationNumber}}人</span></div> -->
         <div class="MyInvitationList">
             <ul>
                 <li v-for="(item,index) in coverInvitation" :key="index">
@@ -113,10 +113,9 @@ export default {
         width: 100%;
         height: 40px;
         background-color: #9bf1f1;
-        border-left: 35px solid rgb(163, 185, 226);
         font-size: 20px;
         padding-top: 10px;
-        padding-left: 20px;
+        padding-left: 40px;
         span{
             color:white;
             padding-left: 180px;
@@ -162,7 +161,7 @@ export default {
         }
         .ListV{
             margin-top: -1.4rem;
-            margin-left: 4.5rem;
+            margin-left: 6rem;
             color: rgb(182, 6, 6);
         }
         

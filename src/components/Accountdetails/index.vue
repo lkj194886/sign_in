@@ -46,7 +46,7 @@ export default {
 
     data() {
         return {
-            active: 2s,
+            active: 2,
             tixianGo:require("../../static/img/tixian.png"),
             weixinPayment:"微信",
             zhifubaoPayment:"支付宝",
