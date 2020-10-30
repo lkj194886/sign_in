@@ -9,11 +9,9 @@
                 @click-left="onClickLeft"
             />
         </div>
-        <br/><br/>
         <div class="accountdetailsList">
-            <van-tabs :active="active" animated background="rgba(235, 246, 246, 0.986)">
+            <van-tabs :active="active" animated background="rgb(129 218 197 / 23%)">
                 <van-tab title="余额提现">
-                    <div style="background-color:rgba(245, 246, 246, 0.986)"><br/></div>
                     <ul>
                         <li v-for="(item,index) in WithdrawalList" :key="index">
                             <div class="listTableStyle"><img :src="tixianGo"/><span class="listTest">{{item.withdrawal}}-{{item.payment}}</span><span class="listTime">{{item.time}}</span><span class="listMoney">{{item.Addition}}{{item.money}}</span><span>{{item.state}}</span></div>

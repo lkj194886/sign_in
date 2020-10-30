@@ -1,44 +1,29 @@
 <template>
   <div class="notice">
-    <!-- <div class="bulletin_board">
-      <span class="notice_title">邀请福利</span>
-      <div class="notice_concent">
-        1、设置容器为弹性盒子布局 display: flex; <br />
-        2、设置弹性盒子中子元素的排列方式flex-direction: row | column;<br />
-        3、设置弹性子元素超出父容器时是否换行flex-warp: nowrap | wrap;<br />
-        4、flex-direction 和 flex-wrap的简写 flex-flow:flex-direction flex-wrap;
-        <br />
-        5、设置弹性子元素在主轴（横轴）方向上的对齐方式justify-content:
-        flex-start | flex-end | center | space-between |space-around; <br />
-        6、设置弹性子元素在侧轴（纵轴）方向上的对齐方式;<br />
-      </div>
-      <div class="invitationButton" @click="photoShow">
-        <span>立即邀请赢取福利</span>
-      </div>
-    </div>-->
-    <!-- <div v-show="show" class='popContainer'  @click="EndphotoShow">
-      <img  src="../../static/img/ceshi111.jpeg">
-      <a href="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"   download="img">
-        <button class="buttonShowPhoto">
-            <span>点击保存</span>
-        </button>
-      </a>
-    </div>  -->
     <div class="invitationButtonFlex"  @click="photoShow">
-        <img :src="Share_Button" width="280px" height="80px"  class="invitationButton"/>
+        <img :src="Share_Button" width="260px" height="65px"  class="invitationButton"/>
     </div>
-    
+    <div class="invitationButtonFlexTow"  @click="onClickRight">
+        <img :src="Share_huodong" width="55px" height="15px"  class="invitationButtonTow"/>
+    </div>
 
     <van-popup v-model="show" position="bottom" class="popupShow">
-      
       <div class="ShareFlex">
+        <div class="backRe"><span @click="falseShow">×</span></div>
         <div class="SharePhoto">
-          <ul>
-            <li><img :src="Share_wx" width="50px" height="48px"/><span>微信好友</span></li>
-            <li><img :src="Share_qq" width="50px" height="48px"/><span>QQ好友</span></li>
-            <li><img :src="Share_wb" width="50px" height="48px"/><span>新浪微博</span></li>
-          </ul>
+          <img :src="Share_yaoqing" width="89%" height="380px"  class="newShow1"/>
         </div>
+        <ul>
+            <a download="newShow2.png" :href="Share_Copy">
+              <li><img :src="Share_wx" width="42px" height="41px"/><span>微信好友</span></li>
+            </a>
+            <a download="newShow2.png" :href="Share_Copy">
+            <li><img :src="Share_qq" width="42px" height="41px"/><span>QQ好友</span></li>
+            </a>
+            <a download="newShow2.png" :href="Share_Copy">
+            <li><img :src="Share_wb" width="42px" height="41px"/><span>新浪微博</span></li>
+            </a>
+        </ul>
       </div>
     </van-popup>
   </div>
@@ -47,6 +32,7 @@
 
 <script>
 import { Popup } from 'vant';
+import { Dialog } from 'vant';
 export default {
   data() {
     return {
@@ -55,12 +41,16 @@ export default {
       Share_wx:require("../../static/img/Share_wx.png"),
       Share_qq:require("../../static/img/Share-qq.png"),
       Share_wb:require("../../static/img/Share-wb.png"),
-      Share_Button:require("../../static/img/Share_button.png"),
+      Share_Button:require("../../static/img/lijiyaoqing.png"),
+      Share_huodong:require("../../static/img/huodongshuoming.png"),
+      Share_yaoqing:require("../../static/img/newShow1.png"),
+      Share_Copy:require("../../static/img/newShow2.png"),
       city: "",
     };
   },
   components: {
     'VanPopup':Popup,
+    [Dialog.Component.name]: Dialog.Component,
   },
 
   methods: {
@@ -70,6 +60,37 @@ export default {
     EndphotoShow() {
       this.show = false;
     },
+    falseShow(){
+      this.show = false;    
+    },
+    onClickRight(){
+            Dialog.alert({
+            title: '- - 活动说明 - -',
+            theme:'round-button',
+            message: ' 1.  在注册页面输入邀请人邀请码的，注册人有机会免费升级初级会员权益，邀请人可获得会员等级权益相应福利次数。\n'+
+
+                      '2.  好友注册登入后未填写邀请码的，在【我的】-【邀请人ID】填写邀请码，邀请人可获得会员等级权益相应福利次数。\n'+
+
+                      '3.  被邀请的好友，使用的设备及手机号必须是从未下载过且从未登入过趣味极速版APP的才记为有效,手机号需为中国大陆地区归属。\n'+
+
+                      '4.  如果您或则您邀请的好友非正常邀请或恶意注册、提供虚假信息、以任何第三方软件参与本活动，我们有权扣除您和'+
+
+                      '您的好友奖励相应奖励，情节严重者，平台将取消其参加活动的资格。\n'+
+
+                      '●  活动最终解释权归趣味极速版平台所有',
+            beforeClose,
+            confirmButtonText:'知道了',
+            messageAlign:'left',
+            });
+            function beforeClose(action, done) {
+                if (action === 'confirm') {
+                    setTimeout(done, 1000);
+                } else {
+                    done();
+                }
+          }
+     },
+		
   }
 }
 </script>
@@ -84,7 +105,7 @@ export default {
   justify-content: center;
   height: 88vh;
   background-color: blanchedalmond;
-  background: url("../../static/img/invitationPhoto.jpg") no-repeat;
+  background: url("../../static/img/invitation.png");
   background-size: 100%;
   .bulletin_board {
     width: 80%;
@@ -140,8 +161,8 @@ export default {
       display: flex;
       align-items: center;
       position: relative;
-      top: 25px;
-      left: 25%;
+      top: -7rem;
+      left: 16%;
       background-size: 150px 200px;
       animation-name: scaleDraw; /*关键帧名称*/
       animation-timing-function: ease-in-out; /*动画的速度曲线*/
@@ -150,12 +171,14 @@ export default {
 
       
     }
-    
-    .invitationButtonFlex{
-      margin-top: -11rem;
-      margin-right: 9rem;
+    .invitationButtonTow{
+      z-index: 11;
+      display: flex;
+      align-items: center;
+      position: relative;
+      top: -17rem;
+      left: 16%;
     }
-
     
 .popContainer {
   position: fixed;
@@ -190,11 +213,8 @@ export default {
 
 .popupShow{
   width: 100%;
-  height: 88%;
+  height: 72.5%;
   background: linear-gradient(to top,white, transparent);
-  background-position: center;
-  background-blend-mode: normal;
-  position: absolute;
 }
 
 
@@ -205,7 +225,7 @@ export default {
   align-items:center;
   flex-direction:row;
   ul{
-    margin-top: 27rem;
+    margin-top: -2.7rem;
   }
   li{
     display: inline-flex;
@@ -217,21 +237,28 @@ export default {
     padding: 0px;
   }
   span{
-    font-size: 13px;
-    padding-top: 70px;
-    margin-left: -50px;
+    font-size: 10px;
+    padding-top: 125%;
+    margin-left: -2.5rem;
   }
-
+  a{
+    color: black;
+  }
   
-.SharePhoto{
-  z-index: 20;
-  width: 90%;
-  height: 30rem;
-  background: url("../../static/img/Share_SumPhoto.jpg") no-repeat;
-  background-size: 88%;
-  background-position-x: 1.5rem;
-  background-position-y: -3rem;
-}
+  .SharePhoto{
+    z-index: 0;
+    margin-left: 11%;
+  }
+  .backRe{
+    z-index: 100;
+    position: relative;
+    top: 1.2rem;
+    left: 11.3rem;
+    span{
+      color: white;
+      font-size: 32px;
+    }
+  }
 }
 
 </style>
