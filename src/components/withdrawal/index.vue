@@ -30,17 +30,22 @@
           >去绑定<span class="iconfont icon-jiantou"></span
         ></span>
       </div>
+      <div>
+      <span class="iconfont icon-weixin" style="font-size:20px;color: rgb(7, 193, 96); border:1px solid red;"></span><span>{{user.userWeiXinName}}</span>
+      </div>
     </div>
     <div class="withdrawal_information">
       <div class="withdrawal_money">
         <span class="money">提现金额</span>
         <div>
           <span class="money_icon">￥</span>
-          <span class="tixian_money">100</span>
+          <span class="tixian_money"
+            ><input type="text" v-model="money"
+          /></span>
         </div>
       </div>
       <div class="withdrawal_balance">
-        <span class="balance">可用余额:125元</span>
+        <span class="balance">可用余额:{{ user.userRemainingSum }}</span>
       </div>
       <div class="withdrawal_btn">
         <input class="btn" type="button" value="提现" />
@@ -68,6 +73,7 @@ export default {
   },
   data() {
     return {
+      money: "",
       show: false,
       active: -1,
       notBound: "",
@@ -83,9 +89,13 @@ export default {
           content: "微信",
         },
       ],
+      user: "",
     };
   },
   methods: {
+    btn(){
+
+    },
     onClickLeft() {
       this.$router.go(-1);
     },
@@ -102,17 +112,30 @@ export default {
       }
     },
     getItem(index) {
-      this.show = true;
       this.active = index;
       if (index === 0) {
-        this.notBound = "支付宝";
+        if (this.user.userZhiFUBao === null || this.user.userZhiFUBao === "") {
+          this.show = true;
+          this.notBound = "支付宝";
+        }
+        else{
+          this.show=false
+        }
       }
       if (index === 1) {
-        this.notBound = "微信";
+        if (this.user.userWeiXin === null || this.user.userWeiXin === "") {
+          this.show = true;
+          this.notBound = "微信";
+        }
+        else{
+          this.show=false
+        }
       }
     },
   },
   mounted() {
+    this.user = this.$store.state.user.user;
+    console.log(this.user);
     this.$mui.back = () => {
       this.$router.go(-1);
     };
@@ -254,6 +277,10 @@ export default {
         .tixian_money {
           flex: 90%;
           font-size: 3rem;
+          input {
+            width: 100%;
+            border: 0;
+          }
         }
       }
     }

@@ -11,12 +11,12 @@
       <div class="exchange_qibi">
         <div class="duihuan">兑换七币</div>
         <div class="exchange_symbol">$</div>
-        <div class="exchange_money">6666</div>
+        <div class="exchange_money"><input type="text"></div>
       </div>
-      <div class="exchange_usable_qibi">可用七币: 800</div>
+      <div class="exchange_usable_qibi">可用七币: {{user.userQiBi}}</div>
       <div class="exchange_poundage">
-        <div class="exchange_rate">$100 = ￥20</div>
-        <div class="exchange_rate_vip">普通会员兑换手续费%80</div>
+        <div class="exchange_rate">$100 = ￥{{100-user.signInVip.vipExchangeRate}}</div>
+        <div class="exchange_rate_vip">{{user.signInVip.vipName}}兑换手续费%{{user.signInVip.vipExchangeRate}}</div>
       </div>
     </div>
     <div class="exchange_btn">
@@ -43,9 +43,14 @@ export default {
     NavBar,
   },
   data() {
-    return {};
+    return {
+      user:'',
+      qibi:''
+    };
   },
   mounted() {
+    this.user = this.$store.state.user.user;
+    console.log(this.user);
     this.$mui.back = () => {
       // console.log("!111");
       this.$router.go(-1);
@@ -105,6 +110,10 @@ export default {
         align-items: center;
         display: flex;
         font-size: 3rem;
+        input{
+          border: 0;
+          width: 100%;
+        }
       }
     }
     .exchange_usable_qibi {

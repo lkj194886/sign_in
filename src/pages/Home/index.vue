@@ -21,7 +21,7 @@
             </steps>
           </div>
           <div class="sign_in_btn">
-            <input class="btn" type="button" value="立即签到" />
+            <input class="btn" type="button" @click="sign_in" value="立即签到" />
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@ import BMap from "BMap";
 // import AMap from 'vue-amap'
 import { Loading } from "vant";
 export default {
-  components: {
+  components: { 
     Step,
     Steps,
     Loading,
@@ -75,7 +75,11 @@ export default {
     };
   },
   mounted() {
+
+    let user = this.$store.state.user;
+    console.log(user);
     //页面加载时查询全局变量是否已经存在数据,没有则重新获取
+
     if (this.$store.state.LocationCity === null) {
       this.city();
     } else {
@@ -201,6 +205,15 @@ export default {
 
       this.getCity();
     },
+
+    //签到sign_in
+    sign_in(){
+      if(this.$store.state.user===null){
+        this.$router.push({
+        path: "/login",
+      });
+      }
+    }
   },
 };
 </script>
@@ -290,7 +303,7 @@ export default {
             width: 95%;
             margin-top: 10px;
             height: 50px;
-            background-color: rgba($color: #ffffff, $alpha: 0.8);
+            background-color: rgba($color: #2b2727, $alpha: 0.8);
             border-radius: 10px;
             border: 0.5px solid rgba($color: #ffffff, $alpha: 0.4);
           }

@@ -17,14 +17,13 @@
         />
       </div>
     </div>
-
     <div class="bound_notice">
       1.请填写真实姓名(请不要填写昵称)<br />
       2.请确保填写的姓名和到账账户实名认证一致，否则无法到账<br />
     </div>
 
     <div class="bound_btn">
-      <input class="btn" type="button" value="立即绑定" />
+      <input class="btn" type="button" @click="btn" value="立即绑定" />
     </div>
   </div>
 </template>

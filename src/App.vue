@@ -6,6 +6,9 @@
     <!-- </transition> -->
     <tabbar v-model="active" route class="a" v-show="$route.meta.footShow">
       <tabbar-item replace icon="home-o" to="/">首页</tabbar-item>
+      <keep-alive>
+      <tabbar-item replace icon="send-gift-o" to="/game" >游戏</tabbar-item>
+      </keep-alive>
       <tabbar-item replace icon="coupon-o" badge="5" to="/notice"
         >公告</tabbar-item
       >

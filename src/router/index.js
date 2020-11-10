@@ -14,6 +14,7 @@ import MyInvitation from '@/components/MyInvitation/index'
 import Weixin from "@/components/Bound/Weixin/index"
 import Zhifubao from "@/components/Bound/Zhifubao/index"
 import Exchange from "@/components/Exchange/index"
+import Game from "@/pages/Game/index"
 Vue.use(VueRouter)
 
 const routes = [{
@@ -22,6 +23,14 @@ const routes = [{
     component: Home,
     meta: {
       footShow: true, // true显示，false隐藏
+    }
+  },
+  {
+    path:"/game",
+    name:"Game",
+    component:Game,
+    meta:{
+      footShow:true
     }
   },
   {
