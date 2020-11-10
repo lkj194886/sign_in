@@ -17,7 +17,7 @@ npm run build
 
 ### Lints and fixes files
 ```
-npm run lint2020/10/26/21.00
+npm run lint2020/10/30/16.00
 ```
 
 ### Customize configuration
