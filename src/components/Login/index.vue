@@ -32,7 +32,7 @@ export default {
       clasuse: "《<a href='#'>用户协议</a>》和",
       privacy: "《<a href='#'>隐私政策</a>》",
       GetPone: null,
-      LoginPhotoLogo: require("../../static/img/QuWeiLogo.png"),
+      LoginPhotoLogo: "http://192.168.0.193:8090/file/QuWeiLogo.png",
       buttonStyle: "background-color: rgb(201, 6, 6)",
       isStyle: "background-color: red",
     };
@@ -48,7 +48,7 @@ export default {
         });
         return;
       }
-      var mobile_mode = /^1[34578]\d{9}$/;
+      let mobile_mode = /^1[34578]\d{9}$/;
       if (!mobile_mode.test(this.GetPone)) {
         Dialog.alert({
           message: "手机号不格式不正确",

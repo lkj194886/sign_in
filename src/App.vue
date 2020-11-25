@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" style="padding-bottom:60px">
     <!-- <transition name="slide-fade"  mode="out-in" :duration="{ enter: 500, leave: 0 }"> -->
-    <router-view style="padding-bottom: 60px"></router-view>
+    <router-view ></router-view>
 
     <!-- </transition> -->
     <tabbar v-model="active" route class="a" v-show="$route.meta.footShow">
@@ -55,6 +55,7 @@ export default {
 </script>
 
 <style >
+
 .slide-fade {
   position: fixed;
   left: 0;

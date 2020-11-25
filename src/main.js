@@ -10,7 +10,7 @@ Vue.prototype.$mui = Mui;
 Vue.config.productionTip = false
 import axios from "axios";
 axios.defaults.headers.post["Content-type"] = "application/json";
-axios.defaults.baseURL = "http://192.168.0.102:8090";
+axios.defaults.baseURL = "http://192.168.0.193:8090";
 Vue.prototype.$axios = axios;
 new Vue({
   router,

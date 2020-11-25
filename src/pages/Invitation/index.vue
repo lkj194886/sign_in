@@ -1,28 +1,58 @@
 <template>
-  <div class="notice">
-    <div class="invitationButtonFlex"  @click="photoShow">
-        <img :src="Share_Button" width="260px" height="65px"  class="invitationButton"/>
+  <div
+    class="notice"
+    :style="bimgSrc"
+  >
+    <div class="invitationButtonFlex" @click="photoShow">
+      <img
+        src="http://192.168.0.193:8090/file/invitation/立即邀请.png"
+        width="260px"
+        height="65px"
+        class="invitationButton"
+      />
     </div>
-    <div class="invitationButtonFlexTow"  @click="onClickRight">
-        <img :src="Share_huodong" width="55px" height="15px"  class="invitationButtonTow"/>
+    <div class="invitationButtonFlexTow" @click="onClickRight">
+      <img
+        :src="Share_huodong"
+        width="55px"
+        height="15px"
+        class="invitationButtonTow"
+      />
     </div>
 
     <van-popup v-model="show" position="bottom" class="popupShow">
       <div class="ShareFlex">
         <div class="backRe"><span @click="falseShow">×</span></div>
         <div class="SharePhoto">
-          <img :src="Share_yaoqing" width="89%" height="380px"  class="newShow1"/>
+          <img
+            :src="Share_yaoqing"
+            width="89%"
+            height="380px"
+            class="newShow1"
+          />
         </div>
         <ul>
-            <a download="newShow2.png" :href="Share_Copy">
-              <li><img :src="Share_wx" width="42px" height="41px"/><span>微信好友</span></li>
-            </a>
-            <a download="newShow2.png" :href="Share_Copy">
-            <li><img :src="Share_qq" width="42px" height="41px"/><span>QQ好友</span></li>
-            </a>
-            <a download="newShow2.png" :href="Share_Copy">
-            <li><img :src="Share_wb" width="42px" height="41px"/><span>新浪微博</span></li>
-            </a>
+          <a download="newShow2.png" :href="Share_Copy">
+            <li>
+              <img :src="Share_wx" width="42px" height="41px" /><span
+                >微信好友</span
+              >
+            </li>
+          </a>
+          <a download="newShow2.png" :href="Share_Copy">
+            <li>
+              <img :src="Share_qq" width="42px" height="41px" /><span
+                >QQ好友</span
+              >
+            </li>
+          </a>
+          <a download="newShow2.png" :href="Share_Copy">
+            <li>
+              <img :src="Share_wb" width="42px" height="41px" /><span
+                >新浪微博</span
+              >
+            </li>
+          </a>
         </ul>
       </div>
     </van-popup>
@@ -31,25 +61,25 @@
 
 
 <script>
-import { Popup } from 'vant';
-import { Dialog } from 'vant';
+import { Popup } from "vant";
+import { Dialog } from "vant";
 export default {
   data() {
     return {
       show: false,
-      imgsrc: "http://192.168.0.102:8081/file/abhlz.jpg",
-      Share_wx:require("../../static/img/Share_wx.png"),
-      Share_qq:require("../../static/img/Share-qq.png"),
-      Share_wb:require("../../static/img/Share-wb.png"),
-      Share_Button:require("../../static/img/lijiyaoqing.png"),
-      Share_huodong:require("../../static/img/huodongshuoming.png"),
-      Share_yaoqing:require("../../static/img/newShow1.png"),
-      Share_Copy:require("../../static/img/newShow2.png"),
+      // imgsrc: "http://192.168.0.102:8081/file/abhlz.jpg",
+      Share_wx: "http://192.168.0.193:8090/file/Share_wx.png",
+      Share_qq: "http://192.168.0.193:8090/file/Share-qq.png",
+      Share_wb: "http://192.168.0.193:8090/file/Share-wb.png",
+      Share_huodong: "http://192.168.0.193:8090/file/huodongshuoming.png",
+      Share_yaoqing: "http://192.168.0.193:8090/file/newShow1.png",
+      Share_Copy: "http://192.168.0.193:8090/file/newShow2.png",
+      bimgSrc:"",
       city: "",
     };
   },
   components: {
-    'VanPopup':Popup,
+    VanPopup: Popup,
     [Dialog.Component.name]: Dialog.Component,
   },
 
@@ -60,39 +90,38 @@ export default {
     EndphotoShow() {
       this.show = false;
     },
-    falseShow(){
-      this.show = false;    
+    falseShow() {
+      this.show = false;
     },
-    onClickRight(){
-            Dialog.alert({
-            title: '- - 活动说明 - -',
-            theme:'round-button',
-            message: ' 1.  在注册页面输入邀请人邀请码的，注册人有机会免费升级初级会员权益，邀请人可获得会员等级权益相应福利次数。\n'+
-
-                      '2.  好友注册登入后未填写邀请码的，在【我的】-【邀请人ID】填写邀请码，邀请人可获得会员等级权益相应福利次数。\n'+
-
-                      '3.  被邀请的好友，使用的设备及手机号必须是从未下载过且从未登入过趣味极速版APP的才记为有效,手机号需为中国大陆地区归属。\n'+
-
-                      '4.  如果您或则您邀请的好友非正常邀请或恶意注册、提供虚假信息、以任何第三方软件参与本活动，我们有权扣除您和'+
-
-                      '您的好友奖励相应奖励，情节严重者，平台将取消其参加活动的资格。\n'+
-
-                      '●  活动最终解释权归趣味极速版平台所有',
-            beforeClose,
-            confirmButtonText:'知道了',
-            messageAlign:'left',
-            });
-            function beforeClose(action, done) {
-                if (action === 'confirm') {
-                    setTimeout(done, 1000);
-                } else {
-                    done();
-                }
-          }
-     },
-		
+    onClickRight() {
+      Dialog.alert({
+        title: "- - 活动说明 - -",
+        theme: "round-button",
+        message:
+          " 1.  在注册页面输入邀请人邀请码的，注册人有机会免费升级初级会员权益，邀请人可获得会员等级权益相应福利次数。\n" +
+          "2.  好友注册登入后未填写邀请码的，在【我的】-【邀请人ID】填写邀请码，邀请人可获得会员等级权益相应福利次数。\n" +
+          "3.  被邀请的好友，使用的设备及手机号必须是从未下载过且从未登入过趣味极速版APP的才记为有效,手机号需为中国大陆地区归属。\n" +
+          "4.  如果您或则您邀请的好友非正常邀请或恶意注册、提供虚假信息、以任何第三方软件参与本活动，我们有权扣除您和" +
+          "您的好友奖励相应奖励，情节严重者，平台将取消其参加活动的资格。\n" +
+          "●  活动最终解释权归趣味极速版平台所有",
+        beforeClose,
+        confirmButtonText: "知道了",
+        messageAlign: "left",
+      });
+      function beforeClose(action, done) {
+        if (action === "confirm") {
+          setTimeout(done, 1000);
+        } else {
+          done();
+        }
+      }
+    },
+  },
+  mounted(){
+    let src = "http://192.168.0.193:8090/file/invitation/邀请页面.png";
+    this.bimgSrc=`background: url('${src}') no-repeat; background-size: 100% 100%;`
   }
-}
+};
 </script>
 
 
@@ -100,13 +129,14 @@ export default {
 
 <style lang="scss" scoped>
 .notice {
+  // padding-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 88vh;
+  height: 100vh;
   background-color: blanchedalmond;
-  background: url("../../static/img/invitation.png");
-  background-size: 100%;
+ 
+  
   .bulletin_board {
     width: 80%;
     border: 2px solid white;
@@ -119,7 +149,7 @@ export default {
       border-radius: 45px;
       width: 40%;
       padding: 5px 20px 5px 20px;
-      background-color:  #CD853F;
+      background-color: #CD853F;
       position: relative;
       top: -20px;
       align-items: center;
@@ -132,54 +162,47 @@ export default {
       padding: 20px 10px 5px 10px;
       background-color: #ffffff;
     }
-
-
-
-
-    
   }
 }
 
-  @keyframes scaleDraw {  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
-            0%{
-                transform: scale(1);  /*开始为原始大小*/
-            }
-            25%{
-                transform: scale(1.07); /*放大1.1倍*/
-            }
-            50%{
-                transform: scale(1);
-            }
-            75%{
-                transform: scale(1.07);
-            }
-        }
+@keyframes scaleDraw {
+  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+  0% {
+    transform: scale(1); /*开始为原始大小*/
+  }
+  25% {
+    transform: scale(1.07); /*放大1.1倍*/
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.07);
+  }
+}
 
+.invitationButton {
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -7rem;
+  left: 16%;
+  background-size: 150px 200px;
+  animation-name: scaleDraw; /*关键帧名称*/
+  animation-timing-function: ease-in-out; /*动画的速度曲线*/
+  animation-iteration-count: infinite; /*动画播放的次数*/
+  animation-duration: 4s; /*动画所花费的时间*/
+}
+.invitationButtonTow {
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -17rem;
+  left: 16%;
+}
 
-  .invitationButton {
-      z-index: 11;
-      display: flex;
-      align-items: center;
-      position: relative;
-      top: -7rem;
-      left: 16%;
-      background-size: 150px 200px;
-      animation-name: scaleDraw; /*关键帧名称*/
-      animation-timing-function: ease-in-out; /*动画的速度曲线*/
-      animation-iteration-count: infinite;  /*动画播放的次数*/
-      animation-duration: 4s; /*动画所花费的时间*/
-
-      
-    }
-    .invitationButtonTow{
-      z-index: 11;
-      display: flex;
-      align-items: center;
-      position: relative;
-      top: -17rem;
-      left: 16%;
-    }
-    
 .popContainer {
   position: fixed;
   top: 0;
@@ -211,54 +234,52 @@ export default {
   }
 }
 
-.popupShow{
+.popupShow {
   width: 100%;
   height: 72.5%;
-  background: linear-gradient(to top,white, transparent);
+  background: linear-gradient(to top, white, transparent);
 }
 
-
-.ShareFlex{
+.ShareFlex {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items:center;
-  flex-direction:row;
-  ul{
+  align-items: center;
+  flex-direction: row;
+  ul {
     margin-top: -2.7rem;
   }
-  li{
+  li {
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items:center;
-    flex-direction:row;
+    align-items: center;
+    flex-direction: row;
     margin: 30px;
     padding: 0px;
   }
-  span{
+  span {
     font-size: 10px;
     padding-top: 125%;
     margin-left: -2.5rem;
   }
-  a{
+  a {
     color: black;
   }
-  
-  .SharePhoto{
+
+  .SharePhoto {
     z-index: 0;
     margin-left: 11%;
   }
-  .backRe{
+  .backRe {
     z-index: 100;
     position: relative;
     top: 1.2rem;
     left: 11.3rem;
-    span{
+    span {
       color: white;
       font-size: 32px;
     }
   }
 }
-
 </style>

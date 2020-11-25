@@ -1,5 +1,6 @@
 <template>
   <div class="CodeFlex">
+    <loadin v-show="loadingshow"></loadin>
     <nav-bar
       title="验证"
       left-text="返回"
@@ -26,6 +27,7 @@
         />
       </div>
     </div>
+
     <div class="LoginButton">
       <button @click="getAgainCode" class="loginButton" v-show="show">
         获取验证码
@@ -40,6 +42,7 @@
 
 <script>
 // import VueVercode from "@auspicious/vue-vercode";
+import loadin from "@/components/Loading/index"
 import { NavBar } from "vant";
 import { Dialog } from "vant";
 export default {
@@ -57,6 +60,7 @@ export default {
     // 截取字符长度
     code() {
       if (this.code.length === this.codeLength) {
+        this.loadingshow=true;
         this.newparams.phone = this.Phone;
         this.newparams.phoneCode = this.code;
         this.$axios
@@ -64,6 +68,7 @@ export default {
           .then((res) => {
             if (res.status === 200) {
               if (res.data.code != 200) {
+                this.loadingshow=false;
                 Dialog.alert({
                   message: res.data.msg,
                 }).then(() => {
@@ -71,6 +76,7 @@ export default {
                 });
                 return;
               } else {
+                this.loadingshow=false;
                 this.$store.commit("$_setUserItem", res.data.data);
                 this.$router.push({
                   path: "/",
@@ -104,11 +110,13 @@ export default {
       },
       codeList: [],
       code: "",
+      loadingshow:false
     };
   },
   components: {
     // "vue-vercode": VueVercode,
     NavBar,
+    loadin,
   },
   methods: {
     getCode() {
@@ -210,7 +218,13 @@ input::-webkit-inner-spin-button {
   letter-spacing: 0.1rem;
   color: white;
 }
+
 .CodeFlex {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-wrap: wrap;
+ 
   .CodeTest {
     width: 80%;
     margin-top: 10%;

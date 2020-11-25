@@ -40,9 +40,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 88vh;
+  height: 100vh;
   background: url("../../static/img/Announce.png") no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
   .bulletin_board {
     width: 90%;
     border: 2px solid white;

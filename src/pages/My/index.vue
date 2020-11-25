@@ -69,7 +69,7 @@ export default {
   },
   data() {
     return {
-      imgsrc: require("@/static/img/imgg.jpg"),
+      imgsrc: "http://192.168.0.102:8090/file/imgg.jpg",
       user: '',
       // userName:"",
     };
