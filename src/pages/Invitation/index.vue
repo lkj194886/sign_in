@@ -5,7 +5,7 @@
   >
     <div class="invitationButtonFlex" @click="photoShow">
       <img
-        src="http://192.168.0.193:8090/file/invitation/立即邀请.png"
+        :src="iiimg"
         width="260px"
         height="65px"
         class="invitationButton"
@@ -68,14 +68,15 @@ export default {
     return {
       show: false,
       // imgsrc: "http://192.168.0.102:8081/file/abhlz.jpg",
-      Share_wx: "http://192.168.0.193:8090/file/Share_wx.png",
-      Share_qq: "http://192.168.0.193:8090/file/Share-qq.png",
-      Share_wb: "http://192.168.0.193:8090/file/Share-wb.png",
-      Share_huodong: "http://192.168.0.193:8090/file/huodongshuoming.png",
-      Share_yaoqing: "http://192.168.0.193:8090/file/newShow1.png",
-      Share_Copy: "http://192.168.0.193:8090/file/newShow2.png",
+      Share_wx: "http://"+this.GLOBAL.url+":8090/file/Share_wx.png",
+      Share_qq: "http://"+this.GLOBAL.url+":8090/file/Share-qq.png",
+      Share_wb: "http://"+this.GLOBAL.url+":8090/file/Share-wb.png",
+      Share_huodong: "http://"+this.GLOBAL.url+":8090/file/huodongshuoming.png",
+      Share_yaoqing: "http://"+this.GLOBAL.url+":8090/file/newShow1.png",
+      Share_Copy: "http://"+this.GLOBAL.url+":8090/file/newShow2.png",
       bimgSrc:"",
       city: "",
+      iiimg:"http://"+this.GLOBAL.url+":8090/file/invitation/立即邀请.png",
     };
   },
   components: {
@@ -118,7 +119,7 @@ export default {
     },
   },
   mounted(){
-    let src = "http://192.168.0.193:8090/file/invitation/邀请页面.png";
+    let src = "http://"+this.GLOBAL.url+":8090/file/invitation/邀请页面.png";
     this.bimgSrc=`background: url('${src}') no-repeat; background-size: 100% 100%;`
   }
 };

@@ -5,12 +5,14 @@ import router from './router'
 import store from "./store/index"
 import "./static/css/iconfont.css"
 import Mui from 'vue-awesome-mui';
+import url from "./util/Globa.vue"
+Vue.prototype.GLOBAL=url;
 Vue.use(Mui)
 Vue.prototype.$mui = Mui;
 Vue.config.productionTip = false
 import axios from "axios";
 axios.defaults.headers.post["Content-type"] = "application/json";
-axios.defaults.baseURL = "http://192.168.0.193:8090";
+axios.defaults.baseURL = "http://192.168.101.9:8090";
 Vue.prototype.$axios = axios;
 new Vue({
   router,

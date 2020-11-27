@@ -45,7 +45,7 @@ export default {
     data() {
         return {
             active: 2,
-            tixianGo:"http://192.168.0.193:8090/file/tixian.png",
+            tixianGo:"http://"+this.GLOBAL.url+":8090/file/tixian.png",
             weixinPayment:"微信",
             zhifubaoPayment:"支付宝",
             BalanceWithdrawal:"余额提现",

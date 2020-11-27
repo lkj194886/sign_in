@@ -1,11 +1,13 @@
 <template>
-  <div id="app" style="padding-bottom:60px">
+  <div id="app" style="padding-bottom:45px">
     <!-- <transition name="slide-fade"  mode="out-in" :duration="{ enter: 500, leave: 0 }"> -->
     <router-view ></router-view>
 
     <!-- </transition> -->
     <tabbar v-model="active" route class="a" v-show="$route.meta.footShow">
+      <keep-alive>
       <tabbar-item replace icon="home-o" to="/">首页</tabbar-item>
+      </keep-alive>
       <keep-alive>
       <tabbar-item replace icon="send-gift-o" to="/game" >游戏</tabbar-item>
       </keep-alive>

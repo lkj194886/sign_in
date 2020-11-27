@@ -199,7 +199,7 @@ export default {
                 this.loadingshow = false;
                 this.videoshow = true;
                 this.videosrc =
-                  "http://192.168.0.193:8090/file" +
+                  "http://"+this.GLOBAL.url+":8090/file" +
                   res.data.data.Advertising.advertisingSrc;
 
                 this.playy();
@@ -301,6 +301,7 @@ export default {
   },
   watch: {},
   mounted() {
+    
     //页面加载时查询全局变量是否已经存在数据,没有则重新获取
     if (this.$store.state.LocationCity === null) {
       this.city();

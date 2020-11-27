@@ -32,7 +32,7 @@ export default {
       clasuse: "《<a href='#'>用户协议</a>》和",
       privacy: "《<a href='#'>隐私政策</a>》",
       GetPone: null,
-      LoginPhotoLogo: "http://192.168.0.193:8090/file/QuWeiLogo.png",
+      LoginPhotoLogo: "http://"+this.GLOBAL.url+":8090/file/QuWeiLogo.png",
       buttonStyle: "background-color: rgb(201, 6, 6)",
       isStyle: "background-color: red",
     };
