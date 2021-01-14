@@ -17,8 +17,8 @@ npm run build
 
 ### Lints and fixes files
 ```
-npm run lint2020/10/30/16.00
+npm run lint2020/01/14/16.30
 ```
 
-### Customize configuration 1111111111111
+### Customize configuration 
 See [Configuration Reference](https://cli.vuejs.org/config/).
